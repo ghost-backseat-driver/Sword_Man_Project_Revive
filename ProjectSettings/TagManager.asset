@@ -44,3 +44,6 @@ TagManager:
   - name: BG
     uniqueID: 4207839193
     locked: 0
+  - name: Character
+    uniqueID: 40922633
+    locked: 0
