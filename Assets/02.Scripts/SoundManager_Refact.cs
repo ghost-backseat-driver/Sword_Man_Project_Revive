@@ -91,16 +91,20 @@ public class SoundManager : Singleton<SoundManager>
 
     //볼륨 컨트롤-나중에 UI 슬라이더에 연동시킬 용도
     //설정할거(저장 할 값), 저장된 값(가져올거) 두개
-    public void SetVolume(SoundType type, float value)
+    public void SetVolume(SoundType type, float sliderValue)
     {
+        // 슬라이더로 조절. Lerp로 슬라이더->decibel값(-80.0f~0.0f)으로 변환
+        float decibel = Mathf.Lerp(-80.0f, 0.0f, sliderValue);
         // BGM||EFFECT를 문자열로 변환, 믹서의 파라미터 이름과 매칭하기 위함
-        audioMixer.SetFloat(type.ToString(), value);
+        audioMixer.SetFloat(type.ToString(), decibel);
+        
     }
 
     public float GetVolume(SoundType type)
     {
-        audioMixer.GetFloat(type.ToString(), out float value);
-        return value;
+        //Set의 역순으로 들어오는 구조 InverseLerp decibel->슬라이더 값(0~1)로 변환
+        audioMixer.GetFloat(type.ToString(), out float decibel);
+        return Mathf.InverseLerp(-80.0f, 0.0f, decibel);
     }
 
     //씬 전환시 BGM 자동 변경해줄 함수
