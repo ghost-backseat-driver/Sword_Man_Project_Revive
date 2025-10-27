@@ -1217,6 +1217,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 2c3676084189d4f499458112ea430fa6, type: 3}
   - {fileID: 8300000, guid: cca43ddd11cd830479457c2c7dd78be5, type: 3}
   - {fileID: 8300000, guid: b5facd6ba3142e947a286ef60309c763, type: 3}
+  - {fileID: 8300000, guid: be4433a6219c34b499b974cb8f795cbb, type: 3}
 --- !u!1 &576197215
 GameObject:
   m_ObjectHideFlags: 0
@@ -3245,7 +3246,7 @@ RectTransform:
   m_GameObject: {fileID: 1397613665}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1118831080}
