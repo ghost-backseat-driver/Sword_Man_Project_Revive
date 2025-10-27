@@ -85,7 +85,6 @@ public class SoundManager : Singleton<SoundManager>
             Debug.LogWarning($"Effect {clipName} not found!");
             return;
         }
-
         effectSource.PlayOneShot(clip); //한번 재생
     }
 

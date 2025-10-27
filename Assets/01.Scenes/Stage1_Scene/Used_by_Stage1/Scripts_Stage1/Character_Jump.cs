@@ -22,7 +22,7 @@ public class Character_Jump : MonoBehaviour
     private bool jumpRequested;
 
     //적 플레이어 애니메이터 문자열 모두 동일한 문자열로 둘것-**
-    //private static readonly int jumpHash = Animator.StringToHash("isJumping"); //애니메이터 나중에
+    private static readonly int jumpHash = Animator.StringToHash("isJumping");
     private void Start()
     {
         core = GetComponent<Character_Core>();  //어웨이크 생략-스타트에서 코어 불러오기-항상 잊지말것
@@ -32,6 +32,8 @@ public class Character_Jump : MonoBehaviour
     {
         if (isGrounded)
         {
+            //사운드매니저 호출-점프
+            SoundManager.Instance.PlayEffect("Player_JumpSFX"); //몬스터에 점프가 없다는 가정하에 여기다가..
             core.rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             jumpRequested = true;
         }
@@ -47,15 +49,14 @@ public class Character_Jump : MonoBehaviour
     {
         if (jumpRequested)
         {
-            //core.anim.SetBool(jumpHash, true);
+            core.anim.SetBool(jumpHash, true);
             jumpRequested = false;
         }
 
-        //애니메이션 추가시에 발동할것
-        //if (isGrounded && core.rb.velocity.y <= 0.05f)
-        //{
-        //    core.anim.SetBool(jumpHash, false);
-        //}
+        if (isGrounded && core.rb.velocity.y <= 0.05f)
+        {
+            core.anim.SetBool(jumpHash, false);
+        }
     }
 
     //바닥체크 함수
