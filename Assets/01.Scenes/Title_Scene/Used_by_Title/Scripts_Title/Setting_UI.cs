@@ -31,6 +31,7 @@ public class Setting_UI : MonoBehaviour
         closeButton.onClick.RemoveListener(CloseSettings);
     }
 
+    //세팅 패널 열었을때,
     private void OpenSettings()
     {
         SoundManager.Instance.PlayEffect("Button_Move_SFX");//사운드 추가
@@ -39,6 +40,7 @@ public class Setting_UI : MonoBehaviour
 
     }
 
+    //세팅 패널 닫혔을때,
     private void CloseSettings()
     {
         SoundManager.Instance.PlayEffect("Cancel_SFX");

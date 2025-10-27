@@ -3248,6 +3248,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1441122745}
   - component: {fileID: 1441122746}
+  - component: {fileID: 1441122747}
   m_Layer: 0
   m_Name: Setting_UI
   m_TagString: Untagged
@@ -3286,6 +3287,20 @@ MonoBehaviour:
   menuPanel: {fileID: 849054236}
   openButton: {fileID: 647893493}
   closeButton: {fileID: 1559487425}
+--- !u!114 &1441122747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1441122744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ead22b4c8c6c86d429093512fa4f45e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetScene: Stage1_Scene
+  sceneChangeButton: {fileID: 1292675963}
 --- !u!1 &1469054435
 GameObject:
   m_ObjectHideFlags: 0
