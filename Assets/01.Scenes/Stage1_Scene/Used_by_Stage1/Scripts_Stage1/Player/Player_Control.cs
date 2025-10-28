@@ -84,7 +84,7 @@ public class Player_Control : MonoBehaviour
         move.canMove = false; 
 
         //움직임 완전 봉쇄
-        move.SetDir(Vector2.zero);
+        move.SetDir(Vector2.zero); //이거 안되는듯? 참조하면서 업데이트 거치게 되니까 엉킨듯..? 일단 납둬
 
         //현재 속도 제로로(관성으로 튀어나가는거 방지)
         core.rb.velocity = Vector2.zero;
@@ -159,5 +159,4 @@ public class Player_Control : MonoBehaviour
     {
         strongATK2nd.SetActive(false);
     }
-
 }

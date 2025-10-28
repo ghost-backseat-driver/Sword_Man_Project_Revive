@@ -1213,15 +1213,16 @@ MonoBehaviour:
   bgmGroup: {fileID: -8739353461843817655, guid: 60a89a5c299950e4b9f8062530f17b2b, type: 2}
   effectGroup: {fileID: 3810458963899788468, guid: 60a89a5c299950e4b9f8062530f17b2b, type: 2}
   preloadClips:
-  - {fileID: 8300000, guid: 73d68182bd6976742a03e6dd4b207297, type: 3}
+  - {fileID: 8300000, guid: 30e7402c6d8623741b1e568fcf5e32b2, type: 3}
   - {fileID: 8300000, guid: 2c3676084189d4f499458112ea430fa6, type: 3}
   - {fileID: 8300000, guid: cca43ddd11cd830479457c2c7dd78be5, type: 3}
   - {fileID: 8300000, guid: b5facd6ba3142e947a286ef60309c763, type: 3}
   - {fileID: 8300000, guid: be4433a6219c34b499b974cb8f795cbb, type: 3}
   - {fileID: 8300000, guid: e55a9362b8ab9074f9ca7bd7cf50a8be, type: 3}
-  - {fileID: 8300000, guid: 3aed304888f07dd45bf2445f57be41e2, type: 3}
+  - {fileID: 8300000, guid: 455a6cd127304f443bf79d02d3bd328b, type: 3}
   - {fileID: 8300000, guid: cbdeb3e26d2917843b89a8cbc934b2f3, type: 3}
   - {fileID: 8300000, guid: 92895e2fba7f20045ad1c3c27ab11731, type: 3}
+  - {fileID: 8300000, guid: 501315abaf38f764f9febeefb738afc3, type: 3}
 --- !u!1 &576197215
 GameObject:
   m_ObjectHideFlags: 0
