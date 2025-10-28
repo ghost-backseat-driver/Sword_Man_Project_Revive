@@ -12,21 +12,19 @@ public class Character_HP : MonoBehaviour
     [Header("체력 설정")]
     [SerializeField] private int startHp = 1;
 
-    [Header("피격 모션 있는지?")]
-    [SerializeField] private bool damageAnim = false; //플레이어 에너미 모두 피격 모션 있으면 굳이 안해도 돼
-
     private int totalHp;
 
     //사망 후처리 위한 변수 추가 해야함(재시작 기능 및 텍스트 출력위함)
     public bool isDead { get; private set; } = false;
-    
-    //사망/피격 애니메이션 추가시 여기 주석 풀기
-    //private static readonly int deadHash = Animator.StringToHash("isDead");
-    //private static readonly int damagedHash = Animator.StringToHash("isDamaged");
+
+    //사망||피격 애니메이션 추가
+    private static readonly int deadHash = Animator.StringToHash("isDead");
+    private static readonly int damagedHash = Animator.StringToHash("isDamaged");
     private void Start()
     {
         //코어 불러오기
         core = GetComponent<Character_Core>();
+
         totalHp = startHp;
     }
 
@@ -35,18 +33,14 @@ public class Character_HP : MonoBehaviour
     {
         totalHp -= damage;
 
-        //피격 애니메이션 추가시 애니메이션 발동
-        //if (damageAnim)
-        //{
-        //    core.anim.SetTrigger(damagedHash);
-        //}
+        //피격 애니메이션
+        core.anim.SetTrigger(damagedHash);
 
         if (totalHp <= 0)
         {
             Die();
         }
     }
-
     // 캐릭터 죽음처리 함수 + 후처리 위한 버츄얼 사용 private-> protected virtual
     protected virtual void Die()
     {
@@ -63,12 +57,12 @@ public class Character_HP : MonoBehaviour
         if (control != null) control.enabled = false;
 
         //사망 모션 발동
-        //core.anim.SetTrigger(deadHash);
+        core.anim.SetTrigger(deadHash);
 
-        Invoke(nameof(DieDelay), 0.4f);
+        Invoke(nameof(DieDelay), 1.5f);
 
     }
-    private void DieDelay() //코루틴써도 되는데, 간단한거니까 메모리 측면에서 인보크
+    private void DieDelay()
     {
         gameObject.SetActive(false);
     }

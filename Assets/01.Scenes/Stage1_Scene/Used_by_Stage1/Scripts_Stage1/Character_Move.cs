@@ -44,7 +44,7 @@ public class Character_Move : MonoBehaviour
     //이동관련 함수
     private void Move()
     {
-        //이동 불가상태(공격중이라거나 넉백 상태)일때,
+        //이동 불가상태일때,
         if (!canMove)
         {
             if (externalForce != Vector2.zero)

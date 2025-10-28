@@ -50,12 +50,12 @@ public class Player_Control : MonoBehaviour
         //공격 인풋 == 약공격 ==============
         if (Input.GetKeyDown(KeyCode.A))
         {
-            StartCoroutine(AtkType(normalAtkHash, "normal"));
+            StartCoroutine(AtkTypeCo(normalAtkHash, "normal"));
         }
         //공격 인풋 == 강공격 ==============
         if (Input.GetKeyDown(KeyCode.D))
         {
-            StartCoroutine(AtkType(strongAtkHash, "strong"));
+            StartCoroutine(AtkTypeCo(strongAtkHash, "strong"));
         }
         //=================================
 
@@ -77,7 +77,7 @@ public class Player_Control : MonoBehaviour
         //=================================
     }
 
-    private IEnumerator AtkType(int hash, string type)
+    private IEnumerator AtkTypeCo(int hash, string type)
     {
         //공격중, 이동불가상태
         isAttacking = true;
