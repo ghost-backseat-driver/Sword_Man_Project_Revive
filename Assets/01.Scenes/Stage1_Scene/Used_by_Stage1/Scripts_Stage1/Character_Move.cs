@@ -14,6 +14,11 @@ public class Character_Move : MonoBehaviour
     //외부에서 전달 받을 이동관련 입력 변수
     private Vector2 insertDir = Vector2.zero;
 
+    //외부에서 추가로 줄 힘(넉백/공격이동제어 등에 쓰일거)
+    private Vector2 externalForce = Vector2.zero;
+
+    public bool canMove = true;
+
     //적 플레이어 애니메이터 문자열 모두 동일한 문자열로 둘것-**
     private static readonly int moveHash = Animator.StringToHash("Speed"); //애니메이터 나중에
     private void Start()
@@ -30,10 +35,36 @@ public class Character_Move : MonoBehaviour
         Move();
     }
 
+    //외부 힘 작용
+    public void AddForce(Vector2 force)
+    {
+        externalForce = force;
+    }
+
     //이동관련 함수
     private void Move()
     {
-        core.rb.velocity = new Vector2(insertDir.x * moveSpeed, core.rb.velocity.y);
+        //이동 불가상태(공격중이라거나 넉백 상태)일때,
+        if (!canMove)
+        {
+            if (externalForce != Vector2.zero)
+            {
+                core.rb.velocity = externalForce;
+                externalForce = Vector2.zero;
+            }
+            core.anim.SetFloat(moveHash, Mathf.Abs(core.rb.velocity.x));
+            return;
+        }
+
+        //일반 이동
+        Vector2 velocity = new Vector2(insertDir.x * moveSpeed, core.rb.velocity.y);
+
+        //익스터널포스 추가 해주고
+        velocity += externalForce; 
+        core.rb.velocity = velocity;
+        //익스터널포스 제로로 만들고
+        externalForce = Vector2.zero;
+
         //애니메이션 할당
         core.anim.SetFloat(moveHash, Mathf.Abs(core.rb.velocity.x));
         //방향 전환
