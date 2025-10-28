@@ -16,8 +16,10 @@ public class Player_Control : MonoBehaviour
     //캐릭터 어택 콜라이더용
     [Header("약공격")]
     [SerializeField] private GameObject normalATK;
-    [Header("강공격")]
-    [SerializeField] private GameObject strongATK;
+    [Header("강공격1번 프레임")]
+    [SerializeField] private GameObject strongATK1st;
+    [Header("강공격2번 프레임")]
+    [SerializeField] private GameObject strongATK2nd;
 
     //공격 애니메이션 해쉬
     private static readonly int normalAtkHash = Animator.StringToHash("isATK1");
@@ -36,13 +38,26 @@ public class Player_Control : MonoBehaviour
 
         //공격용 콜라이더 비활성화로 시작
         normalATK.SetActive(false);
-        strongATK.SetActive(false);
+        strongATK1st.SetActive(false);
+        strongATK2nd.SetActive(false);
     }
 
     private void Update()
     {
         //공격중에는 입력값 무시
         if (isAttacking) return;
+
+        //공격 인풋 == 약공격 ==============
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            StartCoroutine(AtkType(normalAtkHash, "normal"));
+        }
+        //공격 인풋 == 강공격 ==============
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            StartCoroutine(AtkType(strongAtkHash, "strong"));
+        }
+        //=================================
 
         //이동관련========================
         Vector2 dir = Vector2.zero;
@@ -58,18 +73,6 @@ public class Player_Control : MonoBehaviour
         {
             //점프 요청
             jump.RequestJump(); //점프 사운드는 Character_Jump쪽에
-        }
-        //=================================
-
-        //공격 인풋 == 약공격 ==============
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            StartCoroutine(AtkType(normalAtkHash, "normal"));
-        }
-        //공격 인풋 == 강공격 ==============
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            StartCoroutine(AtkType(strongAtkHash, "strong"));
         }
         //=================================
     }
@@ -93,24 +96,36 @@ public class Player_Control : MonoBehaviour
 
         core.anim.SetTrigger(hash);
 
-        //yield return null; 한 프레임 기다렸다가 애니메이션 스테이트 전환 되게
+        yield return null; //한 프레임 기다렸다가 애니메이션 스테이트 전환 되게
         //첫번째 제어-공격 애니메이션 길이만큼 대기 -애니메이터 스테이트 공격길이 설정후 주석 풀어
-        //AnimatorStateInfo stateInfo = core.anim.GetCurrentAnimatorStateInfo(0);
-        //float animLength = stateInfo.length;
+        AnimatorStateInfo stateInfo = core.anim.GetCurrentAnimatorStateInfo(0);
+        float animLength = stateInfo.length;
 
-        //두번째 제어-기다릴 시간 지정(임시)
-        yield return new WaitForSeconds(1.0f); //animLength 길이로 변경할것 
+        //두번째 제어-기다릴 시간 지정
+        yield return new WaitForSeconds(animLength); //animLength 길이로 변경할것 
 
         //공격상태 해제, 이동가능상태
         move.canMove = true;
         isAttacking = false;
     }
 
-    //애니메이션 이벤트로 호출할 것들
+    //애니메이션 이벤트로 호출할 것들=========================
+
+    //플레이어 방향에 맞게 이벤트 콜라이더 플립용
+    private void FlipCollider(GameObject atkCollider)
+    {
+        //콜라이더의 로컬 위치
+        Vector3 pos = atkCollider.transform.localPosition;
+        //왼쪽이면 true -1.0f 곱해버리기->오른쪽 배치 기준 반전 시키기.
+        pos.x = Mathf.Abs(pos.x) * (core.spriteRenderer.flipX ? -1.0f : 1.0f);
+        //계산된 위치 콜라이더에 적용
+        atkCollider.transform.localPosition = pos;
+    }
 
     //약공격 콜라이더 활성화
     public void EnableNormalAttackCollider()
     {
+        FlipCollider(normalATK);
         normalATK.SetActive(true);
         SoundManager.Instance.PlayEffect("swordSwingSFX1");
     }
@@ -119,15 +134,30 @@ public class Player_Control : MonoBehaviour
     {
         normalATK.SetActive(false);
     }
-    //강공격 콜라이더 활성화
-    public void EnableStrongAttackCollider()
+    //강공격1번 프레임 콜라이더 활성화
+    public void EnableStrongAttack1stCollider()
     {
-        strongATK.SetActive(true);
+        FlipCollider(strongATK1st);
+        strongATK1st.SetActive(true);
         SoundManager.Instance.PlayEffect("swordSwingSFX1");
     }
-    //강공격 콜라이더 비활성화
-    public void DisableStrongAttackCollider()
+    //강공격1번 프레임 콜라이더 비활성화
+    public void DisableStrongAttack1stCollider()
     {
-        strongATK.SetActive(false);
+        strongATK1st.SetActive(false);
     }
+
+    //강공격2번 프레임 콜라이더 활성화
+    public void EnableStrongAttack2ndCollider()
+    {
+        FlipCollider(strongATK2nd);
+        strongATK2nd.SetActive(true);
+        SoundManager.Instance.PlayEffect("swordSwingSFX1");
+    }
+    //강공격2번 프레임 콜라이더 비활성화
+    public void DisableStrongAttack2ndCollider()
+    {
+        strongATK2nd.SetActive(false);
+    }
+
 }
