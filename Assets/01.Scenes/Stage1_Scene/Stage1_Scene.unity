@@ -1538,7 +1538,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1115572237
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2605,7 +2605,6 @@ MonoBehaviour:
   parryNBForceX: 7
   parryNBForceY: 2
   ParryFxManager: {fileID: 1742177232}
-  parrySound: Parry_Success_SFX
 --- !u!1 &2063943067
 GameObject:
   m_ObjectHideFlags: 0
