@@ -99,8 +99,8 @@ public class Enemy_AtkControl : MonoBehaviour
 
     private void ColliderPos(GameObject atkCollider)
     {
-        //플레이어가 오른쪽이면 1
-        float dir = (player.position.x - transform.position.x) >= 0 ? 1.0f : -1.0f;
+        //에너미가 바라보는 기준 플립된 상태면 -1왼쪽 
+        float dir = core.spriteRenderer.flipX ? -1.0f : 1.0f;
         
         //콜라이더의 로컬 위치
         Vector3 pos = atkCollider.transform.localPosition;
