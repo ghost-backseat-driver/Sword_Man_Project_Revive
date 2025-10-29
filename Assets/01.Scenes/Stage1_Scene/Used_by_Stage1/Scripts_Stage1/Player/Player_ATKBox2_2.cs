@@ -12,10 +12,11 @@ public class Player_ATKBox2_2 : MonoBehaviour
             Character_HP enemyHp = collision.GetComponent<Character_HP>();
             if (enemyHp != null)
             {
-                enemyHp.TakeDamage(3);
+                //몇 대미지, 공격자 위치 
+                enemyHp.TakeDamage(3, transform.position);
             }
-            //ATK2 성공시 사운드
-            SoundManager.Instance.PlayEffect("Player_ATK2_SFX");
+            //타격성공 사운드
+            //SoundManager.Instance.PlayEffect("Player_ATK2_SFX");
         }
     }
 }

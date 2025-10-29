@@ -8,14 +8,15 @@ public class Enemy1_ATKBox : MonoBehaviour
     {
         if (collision.CompareTag("player"))
         {
-            // 에너미 hp 감소시키기
-            Character_HP enemyHp = collision.GetComponent<Character_HP>();
-            if (enemyHp != null)
+            //플레이어 hp 감소시키기
+            Character_HP playerHp = collision.GetComponent<Character_HP>();
+            if (playerHp != null)
             {
-                enemyHp.TakeDamage(3);
+                //몇 대미지, 공격자 위치 
+                playerHp.TakeDamage(2, transform.position);
             }
-            //ATK1 성공시 사운드
-            SoundManager.Instance.PlayEffect("Player_ATK1_SFX");
+            //타격성공 사운드
+            //SoundManager.Instance.PlayEffect("Player_ATK1_SFX");
         }
     }
 }

@@ -352,6 +352,7 @@ GameObject:
   - component: {fileID: 837082246}
   - component: {fileID: 837082245}
   - component: {fileID: 837082254}
+  - component: {fileID: 837082255}
   m_Layer: 6
   m_Name: Player
   m_TagString: player
@@ -596,6 +597,23 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &837082255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 837082244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f38da409d81f43b42aae06a3a445362f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knockbackXForce: 2
+  knockbackYForce: 1
+  stunTime: 0.5
+  invincibleTime: 1
+  blinkColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &925394331
 GameObject:
   m_ObjectHideFlags: 0
@@ -1191,6 +1209,7 @@ GameObject:
   - component: {fileID: 1671919951}
   - component: {fileID: 1671919952}
   - component: {fileID: 1671919953}
+  - component: {fileID: 1671919954}
   m_Layer: 7
   m_Name: Enemy1
   m_TagString: enemy
@@ -1446,6 +1465,23 @@ MonoBehaviour:
     m_Bits: 64
   atkCoolTime: 0.8
   enemyATK1: {fileID: 1940747277}
+--- !u!114 &1671919954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1671919942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f38da409d81f43b42aae06a3a445362f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knockbackXForce: 3
+  knockbackYForce: 2
+  stunTime: 0.5
+  invincibleTime: 1
+  blinkColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &1940747277
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,10 +12,11 @@ public class Player_ATKBox1 : MonoBehaviour
             Character_HP enemyHp = collision.GetComponent<Character_HP>();
             if (enemyHp != null)
             {
-                enemyHp.TakeDamage(1);
+                //몇 대미지, 공격자 위치 
+                enemyHp.TakeDamage(1, transform.position);
             }
-            //ATK1 성공시 사운드
-            SoundManager.Instance.PlayEffect("Player_ATK1_SFX");
+            //타격성공 사운드
+            //SoundManager.Instance.PlayEffect("Player_ATK1_SFX");
         }
     }
 }
