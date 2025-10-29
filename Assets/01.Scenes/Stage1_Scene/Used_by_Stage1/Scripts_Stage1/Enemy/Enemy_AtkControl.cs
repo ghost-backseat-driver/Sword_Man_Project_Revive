@@ -15,6 +15,8 @@ public class Enemy_AtkControl : MonoBehaviour
     //에너미 어택 콜라이더용
     [Header("에너미 공격1")]
     [SerializeField] private GameObject enemyATK1;
+    [Header("에너미 공격2")]
+    [SerializeField] private GameObject enemyATK2;
 
     private static readonly int enemyAtk1Hash = Animator.StringToHash("isATK1");
 
@@ -110,16 +112,42 @@ public class Enemy_AtkControl : MonoBehaviour
         atkCollider.transform.localPosition = pos;
     }
 
-    //에너미 공격 콜라이더 활성화
-    public void EnableEnemyAttackCollider()
+    //====================================================
+    //에너미1 공격 콜라이더 활성화
+    public void EnableEnemyAttack1Collider()
     {
         ColliderPos(enemyATK1);
         enemyATK1.SetActive(true);
         SoundManager.Instance.PlayEffect("Heavy_SwordSwing_SFX");
     }
-    //에너미 공격 콜라이더 비활성화
-    public void DisableEnemyAttackCollider()
+    //에너미1 공격 콜라이더 비활성화
+    public void DisableEnemyAttack1Collider()
     {
         enemyATK1.SetActive(false);
+    }
+    //====================================================
+    //에너미2 공격 콜라이더 활성화
+    public void EnableEnemyAttack2Collider()
+    {
+        ColliderPos(enemyATK1);
+        enemyATK1.SetActive(true);
+        SoundManager.Instance.PlayEffect("SpearSwing_SFX");
+    }
+    //에너미2 공격 콜라이더 비활성화
+    public void DisableEnemyAttack2Collider()
+    {
+        enemyATK1.SetActive(false);
+    }
+    //====================================================
+    //에너미2 에 붙일 일반 콜라이더 활성화
+    public void EnableEnemyshieldCollider()
+    {
+        ColliderPos(enemyATK2);
+        enemyATK2.SetActive(true);
+    }
+    //에너미2 공격 콜라이더 비활성화
+    public void DisableEnemyshieldCollider()
+    {
+        enemyATK2.SetActive(false);
     }
 }

@@ -104,14 +104,14 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.9166667
-    functionName: EnableEnemyAttackCollider
+    functionName: EnableEnemyAttack1Collider
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 1.0833334
-    functionName: DisableEnemyAttackCollider
+    functionName: DisableEnemyAttack1Collider
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
