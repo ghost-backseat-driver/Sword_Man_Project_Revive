@@ -11,9 +11,9 @@ public class Character_Damaged : MonoBehaviour
 
     [Header("피격 관련 설정")]
     [Header("넉백시 X 힘")]
-    [SerializeField] private float knockbackXForce = 2.0f;
+    [SerializeField] private float knockbackForceX = 2.0f;
     [Header("넉백시 Y 힘")]
-    [SerializeField] private float knockbackYForce = 1.0f;
+    [SerializeField] private float knockbackForceY = 1.0f;
     [Header("스턴 시간")]
     [SerializeField] private float stunTime = 0.5f;
     [Header("무적 시간")]
@@ -21,14 +21,20 @@ public class Character_Damaged : MonoBehaviour
 
     [Header("피격무적 중 점멸-컬러")]
     //일단 RGBA 아무거나 넣어놔서 이거 보면서 체크
-    [SerializeField] private Color blinkColor = new Color(1.0f, 1.0f, 1.0f, 1f);
+    [SerializeField] private Color blinkColor = new Color(1.0f, 1.0f, 1.0f, 1.0f);
 
     //맞은 판정 발동, 무적타임 발동할거
     private bool isDamaged = false;
     private bool isInvincible = false;
 
-    //HP에서 무적상태인지 체크할 용도의 불
+    //HP에서 무적상태인지 체크할 용도의 불(읽기용) get
     public bool IsInvincible => isInvincible;
+
+    //Player_ParryBox 에서 사용할 무적상태 set 함수
+    public void SetInvincible(bool value)
+    {
+        isInvincible = value;
+    }
 
     private static readonly int damagedHash = Animator.StringToHash("isDamaged");
 
@@ -63,7 +69,7 @@ public class Character_Damaged : MonoBehaviour
         //맞는 위치 공격자 위치 기반으로 가져오고
         Vector2 hitDir = ((Vector2)transform.position - attackerPos).normalized;
         //넉백 위치는 맞는 맞는 위치에 x,y 힘 값 곱하고
-        Vector2 knockback = new Vector2(hitDir.x * knockbackXForce, knockbackYForce);
+        Vector2 knockback = new Vector2(hitDir.x * knockbackForceX, knockbackForceY);
         
         //이동값 초기화 한 다음
         core.rb.velocity = Vector2.zero;

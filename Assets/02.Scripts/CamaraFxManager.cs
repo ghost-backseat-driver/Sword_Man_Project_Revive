@@ -5,12 +5,12 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 //시네머신 활용해서 패리 이펙트 연출할 스크립트
-public class ParryEffectManager : MonoBehaviour
+public class CamaraFxManager : MonoBehaviour
 {
     [Header("시네머신 메인카메라")]
     [SerializeField] private CinemachineVirtualCamera vcamMain;
-    [Header("시네머신 패링성공 카메라")]
-    [SerializeField] private CinemachineVirtualCamera vcamParry;
+    [Header("시네머신 효과발동 카메라")]
+    [SerializeField] private CinemachineVirtualCamera vcamFX;
 
     [Header("화면 슬로우 속도")]
     [SerializeField] private float slowScale = 0.5f;
@@ -24,12 +24,12 @@ public class ParryEffectManager : MonoBehaviour
     //느려졌다가 원복해야 되니까, 원래 화면속도 저장용
     private float originalTimeScale;
 
-    public void OnParrySuccess()
+    public void OnCameraFX()
     {
-        StartCoroutine(ParryEffectCO());
+        StartCoroutine(CamaraFxCO());
     }
 
-    private IEnumerator ParryEffectCO()
+    private IEnumerator CamaraFxCO()
     {
 
         //슬로우모션 진입==
@@ -38,7 +38,7 @@ public class ParryEffectManager : MonoBehaviour
         Time.timeScale = slowScale;
 
         //카메라 우선순위 변경-패리 카메라 priority 값이 크면돼
-        vcamParry.Priority = 30;
+        vcamFX.Priority = 30;
 
         //임펄스(카메라 흔들림)
         if (impulseSource != null)
@@ -53,6 +53,6 @@ public class ParryEffectManager : MonoBehaviour
         Time.timeScale = originalTimeScale;
 
         //카메라 우선순위 메인으로 복구
-        vcamParry.Priority = 10;
+        vcamFX.Priority = 10;
     }
 }

@@ -42,14 +42,6 @@ public class Player_Control : MonoBehaviour
         core = GetComponent<Character_Core>();
         move = GetComponent<Character_Move>();
         jump = GetComponent<Character_Jump>();
-
-        //공격용 콜라이더 비활성화로 시작
-        normalATK.SetActive(false);
-        strongATK1st.SetActive(false);
-        strongATK2nd.SetActive(false);
-
-        //패링용 콜라이더 비활성화로 시작
-        parry.SetActive(false);
     }
 
     private void Update()
@@ -201,12 +193,12 @@ public class Player_Control : MonoBehaviour
     //패링 프레임 콜라이더 활성화
     public void EnableParryCollider()
     {
-        FlipCollider(parry);//여긴 플립 안해도 될거 같긴 한데.. 어차피 플레이어 덮을거라
+        //플립안할거
         parry.SetActive(true);
-        //SoundManager.Instance.PlayEffect("패링 준비 사운드")
+        SoundManager.Instance.PlayEffect("Player_ShieldReady_SFX");
     }
     //패링 프레임 콜라이더 비활성화
-    public void DisableParryCollider() 
+    public void DisableParryCollider()
     {
         parry.SetActive(false);
     }
