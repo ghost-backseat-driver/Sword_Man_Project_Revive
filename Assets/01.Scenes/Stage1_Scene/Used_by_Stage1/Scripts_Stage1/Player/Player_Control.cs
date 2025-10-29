@@ -13,7 +13,7 @@ public class Player_Control : MonoBehaviour
     private Character_Move move;
     private Character_Jump jump;
 
-    //캐릭터 어택 콜라이더용
+    //플레이어 어택 콜라이더용
     [Header("약공격")]
     [SerializeField] private GameObject normalATK;
     [Header("강공격1번 프레임")]
@@ -21,9 +21,16 @@ public class Player_Control : MonoBehaviour
     [Header("강공격2번 프레임")]
     [SerializeField] private GameObject strongATK2nd;
 
+    //플레이어 패링 콜라이더용
+    [Header("방어")]
+    [SerializeField] private GameObject parry;
+
     //공격 애니메이션 해쉬
     private static readonly int normalAtkHash = Animator.StringToHash("isATK1");
     private static readonly int strongAtkHash = Animator.StringToHash("isATK2");
+
+    //패링 애니메이션 해쉬
+    private static readonly int parryHash = Animator.StringToHash("isParry");
 
     //공격중일때 입력값 막을 용도의 불문
     private bool isAttacking = false;
@@ -40,6 +47,9 @@ public class Player_Control : MonoBehaviour
         normalATK.SetActive(false);
         strongATK1st.SetActive(false);
         strongATK2nd.SetActive(false);
+
+        //패링용 콜라이더 비활성화로 시작
+        parry.SetActive(false);
     }
 
     private void Update()
@@ -75,8 +85,16 @@ public class Player_Control : MonoBehaviour
             jump.RequestJump(); //점프 사운드는 Character_Jump쪽에
         }
         //=================================
+
+        //패링관련==========================
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            StartCoroutine(ParryCo(parryHash));
+        }
+        //==================================
     }
 
+    //공격관련 코루틴
     private IEnumerator AtkTypeCo(int hash, string type)
     {
         //공격중, 이동불가상태
@@ -94,6 +112,7 @@ public class Player_Control : MonoBehaviour
         //공격중 앞으로 살짝 밀어버리기 //여기 고쳐야됨 move 쪽이랑 같이
         core.rb.AddForce(new Vector2(dir * 3.0f, 0.0f),ForceMode2D.Impulse);
 
+        //애니메이션
         core.anim.SetTrigger(hash);
 
         yield return null; //한 프레임 기다렸다가 애니메이션 스테이트 전환 되게
@@ -107,6 +126,25 @@ public class Player_Control : MonoBehaviour
         //공격상태 해제, 이동가능상태
         move.canMove = true;
         isAttacking = false;
+    }
+
+    //패링관련 코루틴
+    private IEnumerator ParryCo(int hash)
+    {
+        //이동 봉쇄하고
+        move.canMove = false;
+        move.SetDir(Vector2.zero);
+        core.rb.velocity = Vector2.zero;
+
+        //애니메이션
+        core.anim.SetTrigger(hash);
+        
+        yield return null;
+        AnimatorStateInfo stateInfo = core.anim.GetCurrentAnimatorStateInfo(0);
+        float animLength = stateInfo.length;
+        yield return new WaitForSeconds(animLength);
+
+        move.canMove= true;
     }
 
     //애니메이션 이벤트로 호출할 것들=========================
@@ -158,5 +196,18 @@ public class Player_Control : MonoBehaviour
     public void DisableStrongAttack2ndCollider()
     {
         strongATK2nd.SetActive(false);
+    }
+
+    //패링 프레임 콜라이더 활성화
+    public void EnableParryCollider()
+    {
+        FlipCollider(parry);//여긴 플립 안해도 될거 같긴 한데.. 어차피 플레이어 덮을거라
+        parry.SetActive(true);
+        //SoundManager.Instance.PlayEffect("패링 준비 사운드")
+    }
+    //패링 프레임 콜라이더 비활성화
+    public void DisableParryCollider() 
+    {
+        parry.SetActive(false);
     }
 }
