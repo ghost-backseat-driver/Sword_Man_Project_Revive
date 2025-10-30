@@ -13,15 +13,20 @@ public class Character_HP : MonoBehaviour
 
 
     [Header("체력 설정")]
-    [SerializeField] private int startHp = 1;
+    [SerializeField] private int startHp = 1; //(시작,최대 HP)
 
-    private int totalHp;
+    private int totalHp;//(변경될 HP)
 
     //사망 후처리 위한 변수 추가 해야함(재시작 기능 및 텍스트 출력위함)
     public bool isDead { get; private set; } = false;
 
     //사망 애니메이션 추가
     private static readonly int deadHash = Animator.StringToHash("isDead");
+
+    //체력바UI관련-HP변경, 사망 UI 갱신용 이벤트
+    public System.Action<float, float> onHPChanged; //(현재HP,최대HP)
+    public System.Action onDeath;
+
     private void Start()
     {
         //코어 불러오기
@@ -80,8 +85,8 @@ public class Character_HP : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
-    /*
-    현재 이 스크립트에 구현된 것
-    캐릭터의 Hp 관리(초기체력-대미지),사망처리(이동값 제한, 사망애니메이션, 오브젝트 비활성화)
-    */
+
+    //외부에서 접근할 수 있는 Getter 추가 -> 체력바UI쪽
+    public int GetHP() => totalHp;
+    public int GetMaxHP() => startHp;
 }
