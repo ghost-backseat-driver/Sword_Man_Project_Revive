@@ -4193,8 +4193,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vcamMain: {fileID: 945195414}
   vcamFX: {fileID: 863827627}
-  slowScale: 0.5
-  slowTime: 0.3
+  slowScale: 0.4
+  slowTime: 0.5
   impulseSource: {fileID: 404662059}
 --- !u!1 &1940747277
 GameObject:
