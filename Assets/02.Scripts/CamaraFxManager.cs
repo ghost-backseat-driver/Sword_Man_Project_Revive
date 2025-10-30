@@ -24,6 +24,15 @@ public class CamaraFxManager : MonoBehaviour
     //느려졌다가 원복해야 되니까, 원래 화면속도 저장용
     private float originalTimeScale;
 
+    //슬로우 타임 횟수 중첩 카운트 - 중첩버그 해결용 추가
+    private int slowCount = 0;
+
+    private void Awake()
+    {
+        //타임스케일 초기값 저장하고 시작
+        originalTimeScale = Time.timeScale;
+    }
+
     public void OnCameraFX()
     {
         StartCoroutine(CamaraFxCO());
@@ -31,11 +40,14 @@ public class CamaraFxManager : MonoBehaviour
 
     private IEnumerator CamaraFxCO()
     {
+        //코루틴 시작될때 마다 중첩 스택 쌓기
+        slowCount++;
 
         //슬로우모션 진입==
         //오리지날 = 타임스케일=> 슬로우스케일
-        originalTimeScale = Time.timeScale;
         Time.timeScale = slowScale;
+        //물리연산 업데이트 속도 조절 0.02가 가장 적당한듯
+        Time.fixedDeltaTime = 0.02f * Time.deltaTime;
 
         //카메라 우선순위 변경-패리 카메라 priority 값이 크면돼
         vcamFX.Priority = 30;
@@ -49,8 +61,17 @@ public class CamaraFxManager : MonoBehaviour
         //슬로우 시간만큼 잠시 대기하고,
         yield return new WaitForSecondsRealtime(slowTime);
 
-        //타임스케일 오리지널로 복구
-        Time.timeScale = originalTimeScale;
+        //중첩 감소 시켜버려 - 강제 풀어버리기
+        slowCount--;
+        //그래도 안풀릴수 있잖아 
+        if (slowCount <= 0)
+        {
+            //그냥 0으로 만들어버려
+            slowCount = 0;
+            //중첩 풀고나서 타임스케일 원복
+            Time.timeScale = originalTimeScale;
+            Time.fixedDeltaTime = 0.02f;
+        }
 
         //카메라 우선순위 메인으로 복구
         vcamFX.Priority = 10;
