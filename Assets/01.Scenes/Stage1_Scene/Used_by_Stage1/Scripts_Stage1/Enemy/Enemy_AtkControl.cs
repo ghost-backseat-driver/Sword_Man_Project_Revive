@@ -21,7 +21,7 @@ public class Enemy_AtkControl : MonoBehaviour
     private static readonly int enemyAtk1Hash = Animator.StringToHash("isATK1");
 
     private bool isAttacking = false;
-    private float nextAtkTime = 0f;
+    private float nextAtkTime = 0.0f;
 
     //플레이어 위치 저장용
     private Transform player;
