@@ -78,7 +78,7 @@ public class Character_HP : MonoBehaviour
         //사망 사운드 호출 여기에다가 넣을것
         //->Soundmanager.Instance.PlayEffect("사망소리")
 
-        Invoke(nameof(DieDelay), 1.5f);
+        Invoke(nameof(DieDelay), 10.0f);
 
     }
     private void DieDelay()

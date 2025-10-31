@@ -7,6 +7,7 @@ public class Enemy3_ArrowShooter : MonoBehaviour
 {
     private Character_Core core;
     private Character_Move move;
+    private Character_HP hp;
 
     [Header("화살 프리팹")]
     [SerializeField] private Enemy3_Arrow arrowPrefab;
@@ -35,6 +36,8 @@ public class Enemy3_ArrowShooter : MonoBehaviour
     {
         core = GetComponent<Character_Core>();
         move = GetComponent<Character_Move>();
+
+        hp = GetComponent<Character_HP>();
 
         // 플레이어 태그로 찾기 
         GameObject playerObj = GameObject.FindGameObjectWithTag("player");
@@ -78,7 +81,7 @@ public class Enemy3_ArrowShooter : MonoBehaviour
         move.canMove = false;
 
         //추적 컴포넌트 안쓸거니까, 발사 시점에 플립해줘야되고
-        if (player != null)
+        if (player != null && !hp.isDead)// 죽은 상태에서도 플립되길래 급하게 추가
         {
             Vector2 dir = player.position - transform.position;
             core.spriteRenderer.flipX = dir.x < 0.0f;

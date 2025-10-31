@@ -104,7 +104,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.41666666
+  - time: 0.33333334
     functionName: DisableStrongAttack1stCollider
     data: 
     objectReferenceParameter: {fileID: 0}
@@ -118,7 +118,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.75
+  - time: 0.6666667
     functionName: DisableStrongAttack2ndCollider
     data: 
     objectReferenceParameter: {fileID: 0}
