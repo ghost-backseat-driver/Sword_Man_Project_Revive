@@ -29,6 +29,7 @@ public class Player_SaveLoad : MonoBehaviour
         {
             playerPos = transform.position,
             playerHP = hp.GetHP(),
+            playerMaxHP = hp.GetMaxHP(),
             playerMoveSpeed = move.GetMoveSpeed(),
             playerATK1Power = atkBox1.GetATK1Power(),
             playerATK2_1Power = atkBox2_1.GetATK2_1Power(),
@@ -46,10 +47,12 @@ public class Player_SaveLoad : MonoBehaviour
 
         transform.position = data.playerPos;
         hp.SetHP(data.playerHP);
+        hp.SetMaxHP(data.playerMaxHP);
         move.SetMoveSpeed(data.playerMoveSpeed);
         atkBox1.SetATK1Power(data.playerATK1Power);
         atkBox2_1.SetATK2_1Power(data.playerATK2_1Power);
         atkBox2_2.SetATK2_2Power(data.playerATK2_2Power);
         Coin_UI.Instance.coinCount = data.playerCoin;
+        Coin_UI.Instance.UpdateCoinUI();
     }
 }

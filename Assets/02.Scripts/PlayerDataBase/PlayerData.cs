@@ -8,8 +8,10 @@ public class PlayerData
 {
     //위치 저장
     public Vector3 playerPos;
-    //체력 저장
+    //현재 체력 저장
     public int playerHP;
+    //최대 체력 저장
+    public int playerMaxHP;
     //이동속도 저장
     public float playerMoveSpeed;
     //보유코인 저장

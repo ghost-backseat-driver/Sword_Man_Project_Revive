@@ -10,9 +10,9 @@ public class Player_ParryBox : MonoBehaviour
     [Header("패링 넉백 힘 설정")]
     [SerializeField] private float parryNBForceX = 5.0f;
     [SerializeField] private float parryNBForceY = 2.0f;
-    
-    //패링용 카메라FX
-    [SerializeField] private CamaraFxManager ParryFxManager;
+
+    //패링용 카메라FX SerializeField 제거함
+    private CamaraFxManager parryFxManager; 
 
     private bool isParry;
 
@@ -20,6 +20,17 @@ public class Player_ParryBox : MonoBehaviour
     {
         core = GetComponentInParent<Character_Core>();
         damaged = GetComponentInParent<Character_Damaged>();
+
+        // 런타임에서 찾아서 할당
+        if (parryFxManager == null)
+        {
+            parryFxManager = FindObjectOfType<CamaraFxManager>();
+            if (parryFxManager == null)
+            {
+                Debug.LogWarning("CamaraFxManager를 찾을 수 없습니다!");
+            }
+        }
+
     }
 
     //패링시작
@@ -55,7 +66,7 @@ public class Player_ParryBox : MonoBehaviour
         SoundManager.Instance.PlayEffect("Player_Parry_SFX");
 
         //패링 성공 카메라FX
-        ParryFxManager.OnCameraFX();
+        parryFxManager.OnCameraFX();
 
         // 공격자 밀쳐내기
         Rigidbody2D enemyRb = collision.GetComponentInParent<Rigidbody2D>();

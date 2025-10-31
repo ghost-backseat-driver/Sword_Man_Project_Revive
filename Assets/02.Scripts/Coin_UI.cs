@@ -14,9 +14,15 @@ public class Coin_UI : MonoBehaviour
 
     private void Awake()
     {
+        //싱글톤 초기화
         if (Instance == null)
+        {
             Instance = this;
-        else Destroy(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
         UpdateCoinUI();
     }
     //코인 획득시 UI 코인카운트 누적 
@@ -33,7 +39,7 @@ public class Coin_UI : MonoBehaviour
     }
 
     //UI에 표시
-    private void UpdateCoinUI()
+    public void UpdateCoinUI()
     {
         if (coinCountText != null)
             coinCountText.text = coinCount.ToString();
