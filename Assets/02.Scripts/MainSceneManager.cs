@@ -17,7 +17,7 @@ public class MainSceneManager : MonoBehaviour
         SceneManager.LoadScene(current.name);
     }
 
-    //저장된 데이터로 씬 불러오기(추가할것)
+    //저장된 데이터로 씬 불러오기(추가할것)-
 
     //현재 씬 이름 반환용
     public string GetCurrentSceneName()

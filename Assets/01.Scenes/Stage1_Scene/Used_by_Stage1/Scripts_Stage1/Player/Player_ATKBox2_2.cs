@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class Player_ATKBox2_2 : MonoBehaviour
 {
+    [Header("플레이어 어택박스3 공격력")]
+    [SerializeField] private int ATK2_2Power = 1;
+
+    //외부에서 접근할 수 있는 Getter,Setter 추가 -> 세이브+업그레이드용
+    public int GetATK2_2Power() => ATK2_2Power;
+    public void SetATK2_2Power(int value) => ATK2_2Power = value;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("enemy"))
@@ -13,7 +20,7 @@ public class Player_ATKBox2_2 : MonoBehaviour
             if (enemyHp != null)
             {
                 //몇 대미지, 공격자 위치 
-                enemyHp.TakeDamage(3, transform.position);
+                enemyHp.TakeDamage(ATK2_2Power, transform.position);
             }
             //타격성공 사운드
             //SoundManager.Instance.PlayEffect("Player_ATK2_SFX");

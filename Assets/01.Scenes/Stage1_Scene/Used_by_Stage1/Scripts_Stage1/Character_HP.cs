@@ -86,7 +86,9 @@ public class Character_HP : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    //외부에서 접근할 수 있는 Getter 추가 -> 체력바UI쪽
+    //외부에서 접근할 수 있는 Getter 추가 -> 체력바UI쪽,+세이브쪽
     public int GetHP() => totalHp;
     public int GetMaxHP() => startHp;
+    //외부에서 접근할 수 있는 Setter 추가 ->로드쪽
+    public void SetHP(int value) => totalHp = value;
 }

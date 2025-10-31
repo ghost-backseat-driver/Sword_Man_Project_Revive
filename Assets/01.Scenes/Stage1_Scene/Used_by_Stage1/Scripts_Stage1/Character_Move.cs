@@ -71,9 +71,9 @@ public class Character_Move : MonoBehaviour
         if (insertDir.x < 0.0f) core.spriteRenderer.flipX = true;
         if (insertDir.x > 0.0f) core.spriteRenderer.flipX = false;
     }
-    /*
-     현재 이 스크립트에 구현된 것
-    -이동,방향전환 로직, 이동 애니메이션까지
-    -Character_Move 컴포넌트 참조시, 해당 로직에 전달할 입력값 생성할 것.
-     */
+
+    //외부에서 접근할 수 있는 Getter,Setter 추가 -> 세이브+업그레이드용
+    public float GetMoveSpeed() => moveSpeed;
+    public void SetMoveSpeed(float value) => moveSpeed = value;
+
 }
