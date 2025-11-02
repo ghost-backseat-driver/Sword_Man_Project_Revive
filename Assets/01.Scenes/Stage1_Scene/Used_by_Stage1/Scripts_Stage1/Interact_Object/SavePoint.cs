@@ -9,15 +9,20 @@ public class SavePoint : MonoBehaviour
     private Player_SaveLoad player_SaveLoad;
 
     [Header("세이브 버튼")]
-    [SerializeField] private Button saveButton; //재시작 버튼
+    [SerializeField] private Button saveButton;
+
+    [Header("저장완료 알림패널")]
+    [SerializeField] private GameObject SaveSuccessPanel;
+
+    [Header("저장확인 버튼")]
+    [SerializeField] private Button SaveOkButton;
 
     private void Start()
     {
         //버튼에 클릭 이벤트 등록
-        if (saveButton != null)
-        {
-            saveButton.onClick.AddListener(SaveGame);
-        }
+        saveButton.onClick.AddListener(SaveGame);
+
+        SaveOkButton.onClick.AddListener(PanleDisabls);
 
         //런타임때 스폰된 플레이어 찾기
         if (player_SaveLoad == null)
@@ -39,7 +44,14 @@ public class SavePoint : MonoBehaviour
         }
 
         player_SaveLoad.Save();
+        SaveSuccessPanel.SetActive(true);
+        SoundManager.Instance.PlayEffect("OK_SFX");
         Debug.Log("저장완료");
+    }
 
+    private void PanleDisabls()
+    {
+        SoundManager.Instance.PlayEffect("Cancel_SFX");
+        SaveSuccessPanel.SetActive(false);
     }
 }

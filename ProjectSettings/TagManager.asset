@@ -51,3 +51,6 @@ TagManager:
   - name: Character
     uniqueID: 40922633
     locked: 0
+  - name: Shop
+    uniqueID: 3375827107
+    locked: 0

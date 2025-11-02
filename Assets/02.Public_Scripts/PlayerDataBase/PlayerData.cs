@@ -17,6 +17,12 @@ public class PlayerData
     //보유코인 저장
     public int playerCoin;
 
+    //업그레이드 진행사항 저장용
+    public int atkUp; //공격력업UI용
+    public int defUP; //방어력업UI용
+    public int speedUP; //스피드업UI용
+    public int keyUP; //열쇠업UI용
+
     //공격 업그레이드용- 이벤트 콜라이더 각각
     public int playerATK1Power;
     public int playerATK2_1Power;

@@ -8,12 +8,13 @@ using UnityEngine;
 //비활성화 되었을때도 상관없는게, 어차피 저장은 살아있을때에만 가능하니까
 public class Player_SaveLoad : MonoBehaviour
 {
-    private Character_HP hp;
-    private Character_Move move;
+    public Character_HP hp;
+    public Character_Move move;
 
-    [SerializeField] private Player_ATKBox1 atkBox1;
-    [SerializeField] private Player_ATKBox2_1 atkBox2_1;
-    [SerializeField] private Player_ATKBox2_2 atkBox2_2;
+    // 각 어택박스에서 참조를 못하고 있어서(컴포넌트 null) 세이브로드에서 가져올수있게 퍼블릭
+    [SerializeField] public Player_ATKBox1 atkBox1;
+    [SerializeField] public Player_ATKBox2_1 atkBox2_1;
+    [SerializeField] public Player_ATKBox2_2 atkBox2_2;
 
     private void Awake()
     {
@@ -25,6 +26,13 @@ public class Player_SaveLoad : MonoBehaviour
     //세이브 로드 에 필요한 get set 없는곳 일일히 추가해주고옴..
     public void Save()
     {
+        //저장 전에 체력을 최대치로 채우기
+        if (hp != null)
+        {
+            // 현재체력을 최대치로 세팅
+            hp.SetHP(hp.GetMaxHP());
+        }
+
         PlayerData data = new PlayerData
         {
             playerPos = transform.position,
@@ -34,7 +42,12 @@ public class Player_SaveLoad : MonoBehaviour
             playerATK1Power = atkBox1.GetATK1Power(),
             playerATK2_1Power = atkBox2_1.GetATK2_1Power(),
             playerATK2_2Power = atkBox2_2.GetATK2_2Power(),
-            playerCoin = Coin_UI.Instance.coinCount
+
+            playerCoin = Coin_UI.Instance.coinCount,
+            atkUp = AtkUP_UI.Instance.atkUpCount,
+            defUP = DefUP_UI.Instance.defUpCount,
+            speedUP = SpeedUP_UI.Instance.speedUpCount,
+            keyUP = KeyUP_UI.Instance.keyCount
         };
 
         SaveSystem.SavePlayer(data);
@@ -52,7 +65,16 @@ public class Player_SaveLoad : MonoBehaviour
         atkBox1.SetATK1Power(data.playerATK1Power);
         atkBox2_1.SetATK2_1Power(data.playerATK2_1Power);
         atkBox2_2.SetATK2_2Power(data.playerATK2_2Power);
+
         Coin_UI.Instance.coinCount = data.playerCoin;
         Coin_UI.Instance.UpdateCoinUI();
+        AtkUP_UI.Instance.atkUpCount = data.atkUp;
+        AtkUP_UI.Instance.UpdateAtkUpUI();
+        DefUP_UI.Instance.defUpCount = data.defUP;
+        DefUP_UI.Instance.UpdateDefUpUI();
+        SpeedUP_UI.Instance.speedUpCount = data.speedUP;
+        SpeedUP_UI.Instance.UpdateSpeedUpUI();
+        KeyUP_UI.Instance.keyCount = data.keyUP;
+        KeyUP_UI.Instance.UpdateKeyUI();
     }
 }
