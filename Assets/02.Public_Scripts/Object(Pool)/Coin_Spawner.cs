@@ -29,7 +29,9 @@ public class Coin_Spawner : MonoBehaviour
     private void OnEnable()
     {
         //씬 시작 시 풀 생성
-        GameManagers.Pool.CreatePool(coinPrefab, initPoolCount, transform);
+        //GameManagers.Pool.CreatePool(coinPrefab, initPoolCount, transform);
+        //이벤트 콜라이더 때문에(컴포넌트로 두어야 해서), 플이 생성되는 위치를 GameManagers 위치로 생성되게 수정
+        GameManagers.Pool.CreatePool(coinPrefab, initPoolCount, GameManagers.Pool.transform);
     }
 
     //애니메이션 이벤트 콜라이더 활성화-에너미 사망모션에 넣자
