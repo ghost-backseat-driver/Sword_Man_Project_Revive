@@ -33485,9 +33485,9 @@ TextureImporter:
       physicsShape:
       - - {x: 8, y: 8}
         - {x: -8, y: -8}
-        - {x: -8, y: -8}
-        - {x: 8, y: -8}
-        - {x: 8, y: 8}
+        - {x: -7, y: -8}
+        - {x: -3, y: -4}
+        - {x: 8, y: 7}
       tessellationDetail: 0
       bones: []
       spriteID: e3575e8bfe3589b489b0c9f39377ed0b
@@ -33593,9 +33593,9 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
-      - - {x: -8, y: 8}
-        - {x: -8, y: -8}
-        - {x: 8, y: -8}
+      - - {x: -8, y: 7}
+        - {x: -5, y: 4}
+        - {x: 7, y: -8}
         - {x: 8, y: -8}
         - {x: -8, y: 8}
       tessellationDetail: 0
@@ -34062,9 +34062,9 @@ TextureImporter:
       physicsShape:
       - - {x: 8, y: 8}
         - {x: -8, y: -8}
-        - {x: -8, y: -8}
-        - {x: 8, y: -8}
-        - {x: 8, y: 8}
+        - {x: -7, y: -8}
+        - {x: -3, y: -4}
+        - {x: 8, y: 7}
       tessellationDetail: 0
       bones: []
       spriteID: 97c93b2a76a866a4cacff89245645de6
@@ -34212,9 +34212,9 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
-      - - {x: -8, y: 8}
-        - {x: -8, y: -8}
-        - {x: 8, y: -8}
+      - - {x: -8, y: 7}
+        - {x: -1, y: 0}
+        - {x: 7, y: -8}
         - {x: 8, y: -8}
         - {x: -8, y: 8}
       tessellationDetail: 0
@@ -34471,8 +34471,8 @@ TextureImporter:
       physicsShape:
       - - {x: 8, y: 8}
         - {x: -4, y: -3}
-        - {x: -4, y: -8}
-        - {x: 8, y: -8}
+        - {x: -4, y: -4}
+        - {x: 8, y: 7}
         - {x: 8, y: 8}
       tessellationDetail: 0
       bones: []
@@ -34622,10 +34622,10 @@ TextureImporter:
       outline: []
       physicsShape:
       - - {x: -8, y: 8}
-        - {x: -8, y: -8}
-        - {x: 8, y: -8}
-        - {x: 4, y: -8}
+        - {x: -8, y: 7}
+        - {x: 2, y: -2}
         - {x: 4, y: -4}
+        - {x: 4, y: -3}
         - {x: -8, y: 8}
       tessellationDetail: 0
       bones: []
