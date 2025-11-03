@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player_ATKBox2_2 : MonoBehaviour
 {
     [Header("플레이어 어택박스3 공격력")]
-    [SerializeField] private int ATK2_2Power = 1;
+    [SerializeField] private int ATK2_2Power = 2;
 
     //외부에서 접근할 수 있는 Getter,Setter 추가 -> 세이브+업그레이드용
     public int GetATK2_2Power() => ATK2_2Power;

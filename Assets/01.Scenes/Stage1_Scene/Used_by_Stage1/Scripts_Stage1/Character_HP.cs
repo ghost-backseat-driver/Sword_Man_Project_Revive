@@ -42,15 +42,16 @@ public class Character_HP : MonoBehaviour
     {
         if (isDead) return; //중복방지        
 
-        totalHp -= damage;
-
         if (damaged != null)
         {
             //피격무적중이면 피격대미지 안들어오게 해야해
             if (damaged.IsInvincible) return;
             //피격로직 실행
             damaged.OnHit(attackerPos);
+            
+            totalHp -= damage;
         }
+
 
         if (totalHp <= 0)
         {

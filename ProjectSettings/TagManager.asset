@@ -19,7 +19,7 @@ TagManager:
   - Enemy
   - Player_Parry
   - Coin
-  - 
+  - Active_Trap
   - 
   - 
   - 
@@ -48,9 +48,12 @@ TagManager:
   - name: BG
     uniqueID: 4207839193
     locked: 0
-  - name: Character
-    uniqueID: 40922633
-    locked: 0
   - name: Shop
     uniqueID: 3375827107
+    locked: 0
+  - name: TileMap
+    uniqueID: 309514925
+    locked: 0
+  - name: Character
+    uniqueID: 40922633
     locked: 0

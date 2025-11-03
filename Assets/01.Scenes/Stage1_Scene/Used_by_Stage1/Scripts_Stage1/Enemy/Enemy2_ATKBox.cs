@@ -13,7 +13,7 @@ public class Enemy2_ATKBox : MonoBehaviour
             if (playerHp != null)
             {
                 //몇 대미지, 공격자 위치 
-                playerHp.TakeDamage(4, transform.position);
+                playerHp.TakeDamage(5, transform.position);
             }
             //타격성공 사운드
             //SoundManager.Instance.PlayEffect("Player_ATK1_SFX");

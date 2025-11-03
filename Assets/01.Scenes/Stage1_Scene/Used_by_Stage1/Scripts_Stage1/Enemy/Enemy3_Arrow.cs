@@ -50,7 +50,7 @@ public class Enemy3_Arrow : MonoBehaviour
             Character_HP playerHp = collision.GetComponent<Character_HP>();
             if (playerHp != null)
             {
-                playerHp.TakeDamage(1, transform.position); //여기가 애로우 대미지
+                playerHp.TakeDamage(4, transform.position); //여기가 애로우 대미지
             }
 
             ReturnToPool();
