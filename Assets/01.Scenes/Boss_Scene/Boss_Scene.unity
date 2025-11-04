@@ -327,8 +327,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 63657990451477993, guid: d823f4612756e3f4d8ad9d4c86028254, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 478499834433269445, guid: d823f4612756e3f4d8ad9d4c86028254, type: 3}
+      propertyPath: hpSlider
+      value: 
+      objectReference: {fileID: 1178663642}
     - target: {fileID: 886157555025959876, guid: d823f4612756e3f4d8ad9d4c86028254, type: 3}
       propertyPath: m_LocalPosition.x
       value: 962.9871
@@ -371,15 +375,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1265972591566070947, guid: d823f4612756e3f4d8ad9d4c86028254, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1265972591566070947, guid: d823f4612756e3f4d8ad9d4c86028254, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1265972591566070947, guid: d823f4612756e3f4d8ad9d4c86028254, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1510429472045141299, guid: d823f4612756e3f4d8ad9d4c86028254, type: 3}
       propertyPath: m_AnchorMax.x
@@ -395,15 +399,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3731366937463877458, guid: d823f4612756e3f4d8ad9d4c86028254, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3731366937463877458, guid: d823f4612756e3f4d8ad9d4c86028254, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3731366937463877458, guid: d823f4612756e3f4d8ad9d4c86028254, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3762287503270368506, guid: d823f4612756e3f4d8ad9d4c86028254, type: 3}
       propertyPath: m_AnchorMax.x
@@ -415,6 +419,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5191863244556908723, guid: d823f4612756e3f4d8ad9d4c86028254, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5973455306022941021, guid: d823f4612756e3f4d8ad9d4c86028254, type: 3}
+      propertyPath: m_Value
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7917996628846268123, guid: d823f4612756e3f4d8ad9d4c86028254, type: 3}
@@ -423,19 +431,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7940191243240711429, guid: d823f4612756e3f4d8ad9d4c86028254, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7940191243240711429, guid: d823f4612756e3f4d8ad9d4c86028254, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7997774996737324366, guid: d823f4612756e3f4d8ad9d4c86028254, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7997774996737324366, guid: d823f4612756e3f4d8ad9d4c86028254, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8595627404799830762, guid: d823f4612756e3f4d8ad9d4c86028254, type: 3}
       propertyPath: m_Name
@@ -543,7 +551,7 @@ GameObject:
   - component: {fileID: 428143206}
   - component: {fileID: 428143207}
   m_Layer: 5
-  m_Name: UI_HPMananger
+  m_Name: UI_BossHPMananger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -577,11 +585,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 428143205}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28def5e04f971554599fde0d77e6e996, type: 3}
+  m_Script: {fileID: 11500000, guid: 71239b3e4d0167e40936dfeabe1a650b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hpSlider: {fileID: 1540266560}
-  slideSpeed: 3
+  boss_HP: {fileID: 1377409663}
+  bossHpSlider: {fileID: 1540266560}
+  slideSpeed: 10
 --- !u!1 &457311546
 GameObject:
   m_ObjectHideFlags: 0
@@ -997,6 +1006,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 879679554}
   m_CullTransparentMesh: 1
+--- !u!114 &1178663642 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5973455306022941021, guid: d823f4612756e3f4d8ad9d4c86028254, type: 3}
+  m_PrefabInstance: {fileID: 289603938}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1207634559
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1067,9 +1087,13 @@ GameObject:
   - component: {fileID: 1377409659}
   - component: {fileID: 1377409658}
   - component: {fileID: 1377409662}
+  - component: {fileID: 1377409664}
+  - component: {fileID: 1377409663}
+  - component: {fileID: 1377409665}
+  - component: {fileID: 1377409666}
   m_Layer: 0
   m_Name: Orc_Boss
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1208,7 +1232,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.55, y: -3.47, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1234,6 +1258,62 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1377409663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377409657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58300741bdfd86143bac394ad1fb33da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startHp: 100
+--- !u!114 &1377409664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377409657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b219f5ff19fcff47b761dc571057f96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1377409665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377409657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f38da409d81f43b42aae06a3a445362f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knockbackForceX: 4
+  knockbackForceY: 1.2
+  stunTime: 0.1
+  invincibleTime: 0.1
+  blinkColor: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &1377409666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377409657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a4b28e42966d6b4f968a3cd1bc97491, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  canMove: 1
 --- !u!1 &1504787350
 GameObject:
   m_ObjectHideFlags: 0
@@ -1403,7 +1483,7 @@ GameObject:
   - component: {fileID: 1540266559}
   - component: {fileID: 1540266560}
   m_Layer: 5
-  m_Name: HP_Slider
+  m_Name: BossHP_Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
