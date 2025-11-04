@@ -54,7 +54,6 @@ public class Boss_Entrance : MonoBehaviour
             return;
         }
 
-        KeyUP_UI.Instance.UseKey();
         //플레이어 정보 파인드로 찾아주고
         Player_SaveLoad player = FindObjectOfType<Player_SaveLoad>();
         //배경음 꺼주고
