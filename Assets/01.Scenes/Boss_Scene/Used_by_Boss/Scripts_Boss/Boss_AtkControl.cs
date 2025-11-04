@@ -184,7 +184,7 @@ public class Boss_AtkControl : MonoBehaviour
     {
         ColliderPos(bossATK2);
         bossATK2.SetActive(true);
-        //SoundManager.Instance.PlayEffect("SpearSwing_SFX");
+        SoundManager.Instance.PlayEffect("AxeSmash_SFX");
     }
     //보스 공격 콜라이더2 비활성화
     public void DisableBossAttack2Collider()

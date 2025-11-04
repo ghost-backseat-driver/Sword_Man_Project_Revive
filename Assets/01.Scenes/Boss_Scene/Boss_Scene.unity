@@ -427,7 +427,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7917996628846268123, guid: d823f4612756e3f4d8ad9d4c86028254, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7940191243240711429, guid: d823f4612756e3f4d8ad9d4c86028254, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1274,6 +1274,7 @@ GameObject:
   - component: {fileID: 1377409668}
   - component: {fileID: 1377409669}
   - component: {fileID: 1377409670}
+  - component: {fileID: 1377409671}
   m_Layer: 7
   m_Name: Orc_Boss
   m_TagString: enemy
@@ -1420,6 +1421,7 @@ Transform:
   m_Children:
   - {fileID: 1132946577}
   - {fileID: 695532519}
+  - {fileID: 1718426698}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1377409662
@@ -1546,10 +1548,31 @@ MonoBehaviour:
   m_GameObject: {fileID: 1377409657}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96efbb36d0105ca4ba542d60ecf6f893, type: 3}
+  m_Script: {fileID: 11500000, guid: 3565afddb85126d4aa4ac8f4dab5722d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkingTime: 0.5
+  phases:
+  - {fileID: 11400000, guid: de37d83d50a5dbd47bb220dbb0c89dd1, type: 2}
+  - {fileID: 11400000, guid: 9585dbd45e3390943bde170958a93026, type: 2}
+  - {fileID: 11400000, guid: c1f6c2d04ae7a48449ce44b64473e589, type: 2}
+  - {fileID: 11400000, guid: 034d4fe6fcb3e6240b398c29fdd201e1, type: 2}
+  atkControl: {fileID: 1377409667}
+  characterMove: {fileID: 1377409666}
+  animator: {fileID: 1377409662}
+  hp: {fileID: 1377409663}
+--- !u!114 &1377409671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377409657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 239e1067d14c2c0488a34547544250e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whirlWind: {fileID: 1718426697}
 --- !u!1 &1504787350
 GameObject:
   m_ObjectHideFlags: 0
@@ -1846,6 +1869,86 @@ Transform:
   - {fileID: 797413021}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1718426697
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1718426698}
+  - component: {fileID: 1718426700}
+  - component: {fileID: 1718426701}
+  m_Layer: 0
+  m_Name: WhirlWind!
+  m_TagString: enemyAtk
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1718426698
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1718426697}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.09, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1377409661}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1718426700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1718426697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48e4eb9f120b58444934374ea18155f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!70 &1718426701
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1718426697}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 3, y: 0.7}
+  m_Direction: 1
 --- !u!1 &1736567298
 GameObject:
   m_ObjectHideFlags: 0
