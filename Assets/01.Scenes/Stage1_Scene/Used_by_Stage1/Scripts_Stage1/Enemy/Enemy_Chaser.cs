@@ -19,6 +19,9 @@ public class Enemy_Chaser : MonoBehaviour
     [Header("플레이어 추적 범위")]
     [SerializeField] private float chaseRange = 2.5f;
 
+    [Header("추적 정지, 거리유지 범위")]
+    [SerializeField] private float chaseStopRange = 2.0f;
+
     [Header("인식할 레이어")]
     [SerializeField] private LayerMask playerLayer;
 
@@ -47,9 +50,21 @@ public class Enemy_Chaser : MonoBehaviour
         {
             //범위 안이면, 랜덤워크 상태 비활성화
             if (randomWalk != null && randomWalk.enabled) randomWalk.enabled = false;
-            Vector2 originDir = (player.position - transform.position).normalized;
-            Vector2 plusDir = new Vector2(originDir.x * chaseSpeed, 0.0f); //추적속도 플러스->방향이라서 곱하기로, 더하기면 방향자체가 고꾸라짐
-            move.SetDir(new Vector2(plusDir.x, 0)); // 추적속도로 X축 방향만 추적
+
+            //에너미-플레이어 간의 거리 
+            float posGap = Vector2.Distance(transform.position, player.position);
+            //추적중지거리 초과일때만 추적하게
+            if (posGap > chaseStopRange)
+            {
+                Vector2 originDir = (player.position - transform.position).normalized;
+                Vector2 plusDir = new Vector2(originDir.x * chaseSpeed, 0.0f); //추적속도 플러스->방향이라서 곱하기로, 더하기면 방향자체가 고꾸라짐
+                move.SetDir(new Vector2(plusDir.x, 0)); // 추적속도로 X축 방향만 추적
+            }
+            //아니면 정지해야지
+            else
+            {
+                move.SetDir(Vector2.zero);
+            }
         }
         else
         {

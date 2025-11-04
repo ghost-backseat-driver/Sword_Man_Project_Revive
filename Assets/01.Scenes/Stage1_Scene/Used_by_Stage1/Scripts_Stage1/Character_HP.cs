@@ -11,6 +11,8 @@ public class Character_HP : MonoBehaviour
     //피격로직 들고오기
     private Character_Damaged damaged;
 
+    //보스용 피격로직
+    private Boss_Damaged bossDamaged;
 
     [Header("체력 설정")]
     [SerializeField] private int startHp = 1; //(시작,최대 HP)
@@ -33,11 +35,13 @@ public class Character_HP : MonoBehaviour
         core = GetComponent<Character_Core>();
         //피격로직 불러오기
         damaged = GetComponent<Character_Damaged>();
+        //보스 피격로직 불러오기
+        bossDamaged = GetComponent<Boss_Damaged>();
 
         totalHp = startHp;
     }
 
-    // 피격 대미지 함수 (외부 입력값 받아올 것)
+    //피격 대미지 함수 (외부 입력값 받아올 것)-플레이어,일반에너미용
     public void TakeDamage(int damage, Vector2 attackerPos)
     {
         if (isDead) return; //중복방지        
@@ -58,6 +62,26 @@ public class Character_HP : MonoBehaviour
             Die();
         }
     }
+    //피격 대미지 함수 -보스용
+    public void BossTakeDamage(int damage, Vector2 attackerPos)
+    {
+        if (isDead) return; //중복방지        
+
+        if (bossDamaged != null)
+        {
+            //피격로직 실행
+            bossDamaged.OnHit(attackerPos);
+
+            totalHp -= damage;
+        }
+
+
+        if (totalHp <= 0)
+        {
+            Die();
+        }
+    }
+
     // 캐릭터 죽음처리 함수 + 후처리 위한 버츄얼 사용 private-> protected virtual
     protected virtual void Die()
     {
