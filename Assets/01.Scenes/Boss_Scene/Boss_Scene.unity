@@ -1096,6 +1096,96 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 879679554}
   m_CullTransparentMesh: 1
+--- !u!1 &1132946576
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1132946577}
+  - component: {fileID: 1132946578}
+  - component: {fileID: 1132946579}
+  m_Layer: 0
+  m_Name: Boss_Atk2
+  m_TagString: enemyAtk
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1132946577
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1132946576}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.23, y: 0.83, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1377409661}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1132946578
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1132946576}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.5, y: 3}
+  m_EdgeRadius: 0
+--- !u!114 &1132946579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1132946576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 432580afa10aed042b73e714fd50b775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1178663642 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5973455306022941021, guid: d823f4612756e3f4d8ad9d4c86028254, type: 3}
@@ -1183,6 +1273,7 @@ GameObject:
   - component: {fileID: 1377409667}
   - component: {fileID: 1377409668}
   - component: {fileID: 1377409669}
+  - component: {fileID: 1377409670}
   m_Layer: 7
   m_Name: Orc_Boss
   m_TagString: enemy
@@ -1327,6 +1418,7 @@ Transform:
   m_LocalScale: {x: 1.2, y: 1.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1132946577}
   - {fileID: 695532519}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1388,7 +1480,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a4b28e42966d6b4f968a3cd1bc97491, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 4
+  moveSpeed: 3
   canMove: 1
 --- !u!114 &1377409667
 MonoBehaviour:
@@ -1402,13 +1494,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 163406231146e7643a1fcaadb546964c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  atkRange: 3
+  atkRange1: 2
+  atkRange2: 2
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
-  atkCoolTime: 0.7
+  atkCoolTime1: 0.5
+  atkCoolTime2: 5
   bossATK1: {fileID: 695532518}
-  bossATK2: {fileID: 0}
+  bossATK2: {fileID: 1132946576}
 --- !u!114 &1377409668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1443,6 +1537,19 @@ MonoBehaviour:
   knockbackForceY: 1
   blinkColor: {r: 1, g: 0.7891871, b: 0, a: 1}
   blinkDuration: 0.2
+--- !u!114 &1377409670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377409657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96efbb36d0105ca4ba542d60ecf6f893, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkingTime: 0.5
 --- !u!1 &1504787350
 GameObject:
   m_ObjectHideFlags: 0

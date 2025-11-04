@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy2_ATKBox : MonoBehaviour
+public class Boss_AtkBox2 : MonoBehaviour
 {
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -13,7 +13,7 @@ public class Enemy2_ATKBox : MonoBehaviour
             if (playerHp != null)
             {
                 //몇 대미지, 공격자 위치 
-                playerHp.TakeDamage(5, transform.position);
+                playerHp.TakeDamage(20, transform.position);
             }
             //타격성공 사운드
             //SoundManager.Instance.PlayEffect("Player_ATK1_SFX");

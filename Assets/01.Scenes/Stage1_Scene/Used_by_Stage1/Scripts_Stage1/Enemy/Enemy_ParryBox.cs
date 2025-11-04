@@ -44,7 +44,7 @@ public class Enemy_ParryBox : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (!isParry) return; //중복방지
         if (!collision.CompareTag("playerAtk")) return;

@@ -8,9 +8,13 @@ public class Boss_AtkControl : MonoBehaviour
     private Character_Move move;
 
     [Header("공격 인식용 레이캐스트 설정")]
-    [SerializeField] private float atkRange = 1.0f; // 공격 거리
-    [SerializeField] private LayerMask playerLayer;    // 감지할 레이어->플레이어
-    [SerializeField] private float atkCoolTime = 1.0f; // 공격 쿨타임
+    [SerializeField] private float atkRange1 = 1.0f; //공격1 거리x(수평)
+    [SerializeField] private float atkRange2 = 1.0f; //공격2 거리x(수직)
+
+    [SerializeField] private LayerMask playerLayer;    //감지할 레이어->플레이어
+    
+    [SerializeField] private float atkCoolTime1 = 1.0f; //공격1 쿨타임
+    [SerializeField] private float atkCoolTime2 = 1.0f; //공격2 쿨타임
 
     //보스 어택 콜라이더용
     [Header("보스 공격1")]
@@ -19,9 +23,12 @@ public class Boss_AtkControl : MonoBehaviour
     [SerializeField] private GameObject bossATK2; //아직 안만듦
 
     private static readonly int bossAtk1Hash = Animator.StringToHash("isATK1");
+    private static readonly int bossAtk2Hash = Animator.StringToHash("isATK2");
 
     private bool isAttacking = false;
-    private float nextAtkTime = 0.0f;
+    
+    private float nextAtkTime1 = 0.0f;
+    private float nextAtkTime2 = 0.0f;
 
     //플레이어 위치 저장용
     private Transform player;
@@ -32,6 +39,7 @@ public class Boss_AtkControl : MonoBehaviour
         move = GetComponent<Character_Move>();
 
         bossATK1.SetActive(false);
+        bossATK2.SetActive(false);
 
         // 플레이어 태그로 찾기 
         GameObject playerObj = GameObject.FindGameObjectWithTag("player");
@@ -53,20 +61,38 @@ public class Boss_AtkControl : MonoBehaviour
             return;
         }
 
-        // 공격 가능 조건 체크
-        if (Time.time >= nextAtkTime && IsPlayerInRange())
+        //수직 공격 먼저체크
+        if (IsPlayerInRangeAtk2() && Time.time >= nextAtkTime2)
+        {
+            StartCoroutine(BossAtk2Co(bossAtk2Hash));
+        }
+        if (IsPlayerInRangeAtk1() && Time.time >= nextAtkTime1)
         {
             StartCoroutine(BossAtk1Co(bossAtk1Hash));
         }
     }
 
-    private bool IsPlayerInRange()
+    //수평공격 레이
+    private bool IsPlayerInRangeAtk1()
     {
-        // 적이 바라보는 방향 기준으로 레이 쏘기
+        //보스가 바라보는 방향 기준으로 레이 쏘기
         float dir = core.spriteRenderer.flipX ? -1f : 1f;
         Vector2 origin = transform.position;
-        RaycastHit2D hit = Physics2D.Raycast(origin, Vector2.right * dir, atkRange, playerLayer);
+        RaycastHit2D hit = Physics2D.Raycast(origin, Vector2.right * dir, atkRange1, playerLayer);
 
+        return hit.collider != null && hit.collider.CompareTag("player");
+    }
+
+    //수직공격 레이
+    private bool IsPlayerInRangeAtk2()
+    {
+        //보스 기준 앞에 박스로 영역체크
+        float dir = core.spriteRenderer.flipX ? -1f : 1f;
+        Vector2 origin = (Vector2)transform.position+new Vector2(dir * atkRange2, 0.0f);
+        //박스크기
+        Vector2 size = new Vector2(0.01f, 0.5f);
+
+        RaycastHit2D hit = Physics2D.BoxCast(origin,size,0.0f,Vector2.zero,0.0f,playerLayer);
         return hit.collider != null && hit.collider.CompareTag("player");
     }
 
@@ -87,16 +113,43 @@ public class Boss_AtkControl : MonoBehaviour
         // 다음 공격까지 쿨타임
         move.canMove = true;
         isAttacking = false;
-        nextAtkTime = Time.time + atkCoolTime;
+        nextAtkTime1 = Time.time + atkCoolTime1;
+    }
+
+    private IEnumerator BossAtk2Co(int hash)
+    {
+        isAttacking = true;
+        move.canMove = false;
+
+        // 공격 애니메이션 실행
+        core.anim.SetTrigger(hash);
+
+        yield return null;
+        AnimatorStateInfo stateInfo = core.anim.GetCurrentAnimatorStateInfo(0);
+        float animLength = stateInfo.length;
+
+        yield return new WaitForSeconds(animLength);
+
+        // 다음 공격까지 쿨타임
+        move.canMove = true;
+        isAttacking = false;
+        nextAtkTime2 = Time.time + atkCoolTime2;
     }
 
     private void OnDrawGizmosSelected()
     {
+        //수평용
         if (core == null) core = GetComponent<Character_Core>();
         if (core == null || core.spriteRenderer == null) return;
         Gizmos.color = Color.red;
         float dir = core.spriteRenderer.flipX ? -1.0f : 1.0f;
-        Gizmos.DrawLine(transform.position, transform.position + Vector3.right * dir * atkRange);
+        Gizmos.DrawLine(transform.position, transform.position + Vector3.right * dir * atkRange1);
+
+        //수직용
+        Gizmos.color = Color.yellow;
+        Vector2 origin = (Vector2)transform.position + new Vector2(dir * atkRange2, 0.0f);
+        Vector2 size = new Vector2(0.01f, 0.5f);
+        Gizmos.DrawCube(origin, size);
     }
 
     private void ColliderPos(GameObject atkCollider)
