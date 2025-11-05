@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03b69e2e65fa3894e9beb51bb81395ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ATK2_2Power: 1
+  ATK2_2Power: 2
 --- !u!61 &9144883737936450638
 BoxCollider2D:
   m_ObjectHideFlags: 0
