@@ -26,6 +26,9 @@ public class Enemy_AtkControl : MonoBehaviour
     //플레이어 위치 저장용
     private Transform player;
 
+    //이벤트 콜라이더 위치 갱신용
+    private Vector3 originCPos;
+
     private void Start()
     {
         core = GetComponent<Character_Core>();
@@ -117,7 +120,11 @@ public class Enemy_AtkControl : MonoBehaviour
     public void EnableEnemyAttack1Collider()
     {
         ColliderPos(enemyATK1);
+        //위치갱신
+        originCPos = enemyATK1.transform.localPosition;
+        enemyATK1.transform.localPosition = originCPos + new Vector3(0.001f, 0.0f, 0.0f);
         enemyATK1.SetActive(true);
+        enemyATK1.transform.localPosition = originCPos;
         SoundManager.Instance.PlayEffect("Heavy_SwordSwing_SFX");
     }
     //에너미1 공격 콜라이더 비활성화
@@ -130,7 +137,11 @@ public class Enemy_AtkControl : MonoBehaviour
     public void EnableEnemyAttack2Collider()
     {
         ColliderPos(enemyATK1);
+        //위치갱신
+        originCPos = enemyATK1.transform.localPosition;
+        enemyATK1.transform.localPosition = originCPos + new Vector3(0.001f, 0.0f, 0.0f);
         enemyATK1.SetActive(true);
+        enemyATK1.transform.localPosition = originCPos;
         SoundManager.Instance.PlayEffect("SpearSwing_SFX");
     }
     //에너미2 공격 콜라이더 비활성화

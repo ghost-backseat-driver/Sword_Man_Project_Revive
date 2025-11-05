@@ -33,6 +33,9 @@ public class Boss_AtkControl : MonoBehaviour
     //플레이어 위치 저장용
     private Transform player;
 
+    //이벤트 콜라이더 위치 갱신용
+    private Vector3 originCPos;
+
     private void Start()
     {
         core = GetComponent<Character_Core>();
@@ -170,7 +173,11 @@ public class Boss_AtkControl : MonoBehaviour
     public void EnableBossAttack1Collider()
     {
         ColliderPos(bossATK1);
+        //콜라이더 위치 엄청살짝 갱신
+        originCPos = bossATK1.transform.localPosition;
+        bossATK1.transform.localPosition = originCPos + new Vector3(0.001f,0.0f,0.0f);
         bossATK1.SetActive(true);
+        bossATK1.transform.localPosition = originCPos;
         SoundManager.Instance.PlayEffect("AxeSwing1_SFX");
     }
     //보스 공격 콜라이더1 비활성화
@@ -183,7 +190,11 @@ public class Boss_AtkControl : MonoBehaviour
     public void EnableBossAttack2Collider()
     {
         ColliderPos(bossATK2);
+        //위치갱신
+        originCPos = bossATK2.transform.localPosition;
+        bossATK2.transform.localPosition = originCPos + new Vector3(0.001f, 0.0f, 0.0f);
         bossATK2.SetActive(true);
+        bossATK2.transform.localPosition = originCPos;
         SoundManager.Instance.PlayEffect("AxeSmash_SFX");
     }
     //보스 공격 콜라이더2 비활성화

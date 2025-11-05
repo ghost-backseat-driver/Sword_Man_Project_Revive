@@ -35,6 +35,9 @@ public class Player_Control : MonoBehaviour
     //공격중일때 입력값 막을 용도의 불문
     private bool isAttacking = false;
 
+    //이벤트 콜라이더 위치 갱신용
+    private Vector3 originCPos;
+
     //점프 사운드 넣을것
     //사운드매니저 만들어놨으니까, 점프요청할때 사운드 호출하면돼 아래쪽에
     private void Start()
@@ -158,7 +161,11 @@ public class Player_Control : MonoBehaviour
     public void EnableNormalAttackCollider()
     {
         FlipCollider(normalATK);
+        //위치갱신
+        originCPos = normalATK.transform.localPosition;
+        normalATK.transform.localPosition = originCPos + new Vector3(0.001f, 0.0f, 0.0f);
         normalATK.SetActive(true);
+        normalATK.transform.localPosition = originCPos;
         SoundManager.Instance.PlayEffect("swordSwingSFX1");
     }
     //약공격 콜라이더 비활성화
@@ -170,7 +177,11 @@ public class Player_Control : MonoBehaviour
     public void EnableStrongAttack1stCollider()
     {
         FlipCollider(strongATK1st);
+        //위치갱신
+        originCPos = strongATK1st.transform.localPosition;
+        strongATK1st.transform.localPosition = originCPos + new Vector3(0.001f, 0.0f, 0.0f);
         strongATK1st.SetActive(true);
+        strongATK1st.transform.localPosition = originCPos;
         SoundManager.Instance.PlayEffect("swordSwingSFX1");
     }
     //강공격1번 프레임 콜라이더 비활성화
@@ -183,7 +194,12 @@ public class Player_Control : MonoBehaviour
     public void EnableStrongAttack2ndCollider()
     {
         FlipCollider(strongATK2nd);
+        //위치갱신
+        //위치갱신
+        originCPos = strongATK2nd.transform.localPosition;
+        strongATK2nd.transform.localPosition = originCPos + new Vector3(0.001f, 0.0f, 0.0f);
         strongATK2nd.SetActive(true);
+        strongATK2nd.transform.localPosition = originCPos;
         SoundManager.Instance.PlayEffect("swordSwingSFX1");
     }
     //강공격2번 프레임 콜라이더 비활성화
