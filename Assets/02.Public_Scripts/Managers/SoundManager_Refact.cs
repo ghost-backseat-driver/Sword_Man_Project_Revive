@@ -121,6 +121,9 @@ public class SoundManager : Singleton<SoundManager>
             case "Boss_Scene":
                 PlayBGM("BossBGM");
                 break;
+            case "Ending_Scene":
+                PlayBGM("EndingBGM");
+                break;
             default:
                 StopBGM();
                 break;
