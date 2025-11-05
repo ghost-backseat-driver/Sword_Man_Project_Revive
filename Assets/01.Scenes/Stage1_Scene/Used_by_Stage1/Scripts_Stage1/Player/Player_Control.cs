@@ -49,6 +49,13 @@ public class Player_Control : MonoBehaviour
         //공격중에는 입력값 무시
         if (isAttacking) return;
 
+        //패링관련==========================
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            StartCoroutine(ParryCo(parryHash));
+        }
+        //==================================
+
         //공격 인풋 == 약공격 ==============
         if (Input.GetKeyDown(KeyCode.A))
         {
@@ -77,13 +84,6 @@ public class Player_Control : MonoBehaviour
             jump.RequestJump(); //점프 사운드는 Character_Jump쪽에
         }
         //=================================
-
-        //패링관련==========================
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            StartCoroutine(ParryCo(parryHash));
-        }
-        //==================================
     }
 
     //공격관련 코루틴
@@ -123,7 +123,8 @@ public class Player_Control : MonoBehaviour
     //패링관련 코루틴
     private IEnumerator ParryCo(int hash)
     {
-        //이동 봉쇄하고
+        //이동, 입력 봉쇄하고
+        isAttacking = true;
         move.canMove = false;
         move.SetDir(Vector2.zero);
         core.rb.velocity = Vector2.zero;
@@ -137,6 +138,7 @@ public class Player_Control : MonoBehaviour
         yield return new WaitForSeconds(animLength);
 
         move.canMove= true;
+        isAttacking = false;
     }
 
     //애니메이션 이벤트로 호출할 것들=========================
@@ -201,5 +203,15 @@ public class Player_Control : MonoBehaviour
     public void DisableParryCollider()
     {
         parry.SetActive(false);
+    }
+
+    //이동시 발자국 사운드용
+    public void LeftStep()
+    {
+        SoundManager.Instance.PlayEffect("left_FootStep_SFX");
+    }
+    public void RightStep()
+    {
+        SoundManager.Instance.PlayEffect("right_FootStep_SFX");
     }
 }

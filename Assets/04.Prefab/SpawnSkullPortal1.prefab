@@ -20,7 +20,6 @@ GameObject:
   - component: {fileID: 8111849125470531859}
   - component: {fileID: 5650370789199169367}
   - component: {fileID: 5985467038278575767}
-  - component: {fileID: 585540854827610978}
   m_Layer: 7
   m_Name: Enemy1 (1)
   m_TagString: enemy
@@ -296,26 +295,6 @@ MonoBehaviour:
   stunTime: 0.5
   invincibleTime: 1
   blinkColor: {r: 1, g: 0, b: 0, a: 1}
---- !u!114 &585540854827610978
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 400440668703862213}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed004c77545ba82499972ef076ba9467, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  coinPrefab: {fileID: 3490978253713169350, guid: efb85c8562d828e42b6247a33aaf7e3f, type: 3}
-  initPoolCount: 0
-  spawnPoint: {fileID: 4495339357482470759}
-  minGold: 0
-  maxGold: 0
-  spawnForce: 6
-  spreadX: 0.5
-  spreadY: 1
 --- !u!1 &1596931181041940300
 GameObject:
   m_ObjectHideFlags: 0
@@ -426,7 +405,6 @@ GameObject:
   - component: {fileID: 3910493352512252874}
   - component: {fileID: 4843861330838575497}
   - component: {fileID: 9066251780683806014}
-  - component: {fileID: 1911124478353772894}
   m_Layer: 7
   m_Name: Enemy1
   m_TagString: enemy
@@ -702,26 +680,6 @@ MonoBehaviour:
   stunTime: 0.5
   invincibleTime: 1
   blinkColor: {r: 1, g: 0, b: 0, a: 1}
---- !u!114 &1911124478353772894
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4058573206456612654}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed004c77545ba82499972ef076ba9467, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  coinPrefab: {fileID: 3490978253713169350, guid: efb85c8562d828e42b6247a33aaf7e3f, type: 3}
-  initPoolCount: 0
-  spawnPoint: {fileID: 3659464212529944081}
-  minGold: 0
-  maxGold: 0
-  spawnForce: 6
-  spreadX: 0.5
-  spreadY: 1
 --- !u!1 &4481389052346070201
 GameObject:
   m_ObjectHideFlags: 0
@@ -984,7 +942,6 @@ GameObject:
   - component: {fileID: 6734192050736888362}
   - component: {fileID: 4241671527164812558}
   - component: {fileID: 3368414814943216570}
-  - component: {fileID: 2727096354714851959}
   m_Layer: 7
   m_Name: Enemy1 (2)
   m_TagString: enemy
@@ -1260,26 +1217,6 @@ MonoBehaviour:
   stunTime: 0.5
   invincibleTime: 1
   blinkColor: {r: 1, g: 0, b: 0, a: 1}
---- !u!114 &2727096354714851959
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6708857512220105460}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed004c77545ba82499972ef076ba9467, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  coinPrefab: {fileID: 3490978253713169350, guid: efb85c8562d828e42b6247a33aaf7e3f, type: 3}
-  initPoolCount: 0
-  spawnPoint: {fileID: 2614038047714193335}
-  minGold: 0
-  maxGold: 0
-  spawnForce: 6
-  spreadX: 0.5
-  spreadY: 1
 --- !u!1 &7112875189205380300
 GameObject:
   m_ObjectHideFlags: 0

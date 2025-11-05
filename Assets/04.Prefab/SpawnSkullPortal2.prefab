@@ -20,7 +20,6 @@ GameObject:
   - component: {fileID: 2273207554539796175}
   - component: {fileID: 3567173063285925596}
   - component: {fileID: 2773599544018679385}
-  - component: {fileID: 3096990216713794228}
   m_Layer: 7
   m_Name: Enemy2
   m_TagString: enemy
@@ -37,7 +36,7 @@ Transform:
   m_GameObject: {fileID: 15735722271425287}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.0231357, y: -0.33187735, z: 0.021488009}
+  m_LocalPosition: {x: -0.322, y: -0.12, z: 0.021488009}
   m_LocalScale: {x: 0.4, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -297,26 +296,6 @@ MonoBehaviour:
   stunTime: 0.5
   invincibleTime: 1
   blinkColor: {r: 1, g: 0, b: 0, a: 1}
---- !u!114 &3096990216713794228
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 15735722271425287}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed004c77545ba82499972ef076ba9467, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  coinPrefab: {fileID: 3490978253713169350, guid: efb85c8562d828e42b6247a33aaf7e3f, type: 3}
-  initPoolCount: 0
-  spawnPoint: {fileID: 7303582056170872532}
-  minGold: 0
-  maxGold: 0
-  spawnForce: 6
-  spreadX: 0.5
-  spreadY: 1
 --- !u!1 &1596931181041940300
 GameObject:
   m_ObjectHideFlags: 0
@@ -649,7 +628,6 @@ GameObject:
   - component: {fileID: 3910493352512252874}
   - component: {fileID: 4843861330838575497}
   - component: {fileID: 9066251780683806014}
-  - component: {fileID: 1911124478353772894}
   m_Layer: 7
   m_Name: Enemy1
   m_TagString: enemy
@@ -666,7 +644,7 @@ Transform:
   m_GameObject: {fileID: 4058573206456612654}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.5928643, y: -0.82687736, z: 0.021488009}
+  m_LocalPosition: {x: 0.322, y: -0.13, z: 0.021488009}
   m_LocalScale: {x: 0.4, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -925,26 +903,6 @@ MonoBehaviour:
   stunTime: 0.5
   invincibleTime: 1
   blinkColor: {r: 1, g: 0, b: 0, a: 1}
---- !u!114 &1911124478353772894
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4058573206456612654}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed004c77545ba82499972ef076ba9467, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  coinPrefab: {fileID: 3490978253713169350, guid: efb85c8562d828e42b6247a33aaf7e3f, type: 3}
-  initPoolCount: 0
-  spawnPoint: {fileID: 3659464212529944081}
-  minGold: 0
-  maxGold: 0
-  spawnForce: 6
-  spreadX: 0.5
-  spreadY: 1
 --- !u!1 &4168166626448025959
 GameObject:
   m_ObjectHideFlags: 0
@@ -964,7 +922,6 @@ GameObject:
   - component: {fileID: 4931408258264008979}
   - component: {fileID: 6117109294914538017}
   - component: {fileID: 6108839246408410871}
-  - component: {fileID: 5657225007757739480}
   m_Layer: 7
   m_Name: Enemy3
   m_TagString: enemy
@@ -981,7 +938,7 @@ Transform:
   m_GameObject: {fileID: 4168166626448025959}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 15.904001, y: -1.215, z: 0}
+  m_LocalPosition: {x: -0.053, y: -0.12, z: 0}
   m_LocalScale: {x: 0.4, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1222,26 +1179,6 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
---- !u!114 &5657225007757739480
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4168166626448025959}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed004c77545ba82499972ef076ba9467, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  coinPrefab: {fileID: 3490978253713169350, guid: efb85c8562d828e42b6247a33aaf7e3f, type: 3}
-  initPoolCount: 0
-  spawnPoint: {fileID: 2845178291533859224}
-  minGold: 0
-  maxGold: 0
-  spawnForce: 6
-  spreadX: 0.5
-  spreadY: 1
 --- !u!1 &4240600372033257184
 GameObject:
   m_ObjectHideFlags: 0
