@@ -10,6 +10,9 @@ public class TimePause : MonoBehaviour
     [SerializeField] private Button puaseButton;  // 설정열면 멈출 버튼
     [SerializeField] private Button resumeButton; // 닫기 누르면 다시 재생할 버튼
 
+    [Header("ToTitle버튼 누를때도 resume")]
+    [SerializeField] private Button toTitleButton;
+
     [Header("pause 되면 어두워질 화면")]
     [SerializeField] private GameObject pausePanel;
 
@@ -27,6 +30,7 @@ public class TimePause : MonoBehaviour
         // 버튼 이벤트 등록
         puaseButton.onClick.AddListener(Pause);
         resumeButton.onClick.AddListener(Resume);
+        toTitleButton.onClick.AddListener(Resume);
     }
 
     //중복방지
@@ -34,6 +38,7 @@ public class TimePause : MonoBehaviour
     {
         puaseButton.onClick.RemoveListener(Pause);
         resumeButton.onClick.RemoveListener(Resume);
+        toTitleButton.onClick.RemoveListener(Resume);
     }
 
     //일시정지 눌렀을때,

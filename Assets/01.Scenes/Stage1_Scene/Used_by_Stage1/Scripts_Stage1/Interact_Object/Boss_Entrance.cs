@@ -14,8 +14,8 @@ public class Boss_Entrance : MonoBehaviour
     [Header("화면 FX")]
     [SerializeField] private ScreenFx screenFx;
 
-    [Header("화면FX 담은 캔버스")]
-    [SerializeField] private GameObject screenFxCanvas;
+    //[Header("화면FX 담은 캔버스")]
+    //[SerializeField] private GameObject screenFxCanvas;
 
     [Header("실패 패널")]
     [SerializeField] private GameObject EnterFailPanel;
@@ -62,8 +62,8 @@ public class Boss_Entrance : MonoBehaviour
         SoundManager.Instance.PlayEffect("OK_SFX");
         //패널 띄워진거 비활성화
         PanelOut.SetActive(false);
-        //효과 패널 담은 캔버스 활성화
-        screenFxCanvas.SetActive(true);
+        ////효과 패널 담은 캔버스 활성화
+        //screenFxCanvas.SetActive(true);
         //패널 효과 플레이 후에 로드씬
         screenFx.Play(() => SceneManager.LoadScene(targetScene));
     }
