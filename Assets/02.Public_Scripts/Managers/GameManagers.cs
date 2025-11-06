@@ -40,7 +40,7 @@ public class GameManagers
         }
     }
 
-    // 풀 매니저 접근자
+    //풀 매니저 접근자
     public static PoolManager Pool
     {
         get //PoolManager의 접근자

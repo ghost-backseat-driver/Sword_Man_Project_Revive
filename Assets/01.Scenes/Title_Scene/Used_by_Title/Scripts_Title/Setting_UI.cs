@@ -6,20 +6,20 @@ using UnityEngine.UI;
 public class Setting_UI : MonoBehaviour
 {
     [Header("세팅 패널")]
-    [SerializeField] private GameObject settingPanel; // 세팅 패널
-    [SerializeField] private GameObject menuPanel; // 메뉴 패널
+    [SerializeField] private GameObject settingPanel; //세팅 패널
+    [SerializeField] private GameObject menuPanel; //메뉴 패널
 
 
     [Header("세팅 버튼 open/close")]
-    [SerializeField] private Button openButton;  // 타이틀 화면에서 세팅 버튼
-    [SerializeField] private Button closeButton; // 세팅 패널 안의 뒤로가기 버튼
+    [SerializeField] private Button openButton;  //타이틀 화면에서 세팅 버튼
+    [SerializeField] private Button closeButton; //세팅 패널 안의 뒤로가기 버튼
 
     private void Start()
     {
-        // 패널 초기 상태 비활성화
+        //패널 초기 상태 비활성화
         settingPanel.SetActive(false);
 
-        // 버튼 이벤트 등록
+        //버튼 이벤트 등록
         openButton.onClick.AddListener(OpenSettings);
         closeButton.onClick.AddListener(CloseSettings);
     }

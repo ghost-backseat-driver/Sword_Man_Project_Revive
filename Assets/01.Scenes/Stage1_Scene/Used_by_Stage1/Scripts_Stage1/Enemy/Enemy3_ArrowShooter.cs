@@ -39,7 +39,7 @@ public class Enemy3_ArrowShooter : MonoBehaviour
 
         hp = GetComponent<Character_HP>();
 
-        // 플레이어 태그로 찾기 
+        //플레이어 태그로 찾기 
         GameObject playerObj = GameObject.FindGameObjectWithTag("player");
         if (playerObj != null)
         {
@@ -49,7 +49,7 @@ public class Enemy3_ArrowShooter : MonoBehaviour
 
     private void OnEnable()
     {
-        // 오브젝트 풀 생성
+        //오브젝트 풀 생성
         GameManagers.Pool.CreatePool(arrowPrefab, 10);
     }
 
@@ -58,7 +58,7 @@ public class Enemy3_ArrowShooter : MonoBehaviour
         //플레이어 위치 모르면 중지
         if (player == null) return;
 
-        // 공격 중이면 이동 중지
+        //공격 중이면 이동 중지
         if (isAttacking)
         {
             move.SetDir(Vector2.zero);
@@ -68,7 +68,7 @@ public class Enemy3_ArrowShooter : MonoBehaviour
         //감지를 여기 한번 더 넣는게 맞나..
         Collider2D hit = Physics2D.OverlapCircle(transform.position, detectRadius, playerLayer);
 
-        // 공격 가능 조건 체크
+        //공격 가능 조건 체크
         if (hit !=null && Time.time >= nextFireTime)
         {
             StartCoroutine(ArrowAtkCo(enemyAtk1Hash));
@@ -81,7 +81,7 @@ public class Enemy3_ArrowShooter : MonoBehaviour
         move.canMove = false;
 
         //추적 컴포넌트 안쓸거니까, 발사 시점에 플립해줘야되고
-        if (player != null && !hp.isDead)// 죽은 상태에서도 플립되길래 급하게 추가
+        if (player != null && !hp.isDead)//죽은 상태에서도 플립되길래 급하게 추가
         {
             Vector2 dir = player.position - transform.position;
             core.spriteRenderer.flipX = dir.x < 0.0f;
@@ -96,7 +96,7 @@ public class Enemy3_ArrowShooter : MonoBehaviour
 
         yield return new WaitForSeconds(animLength);
 
-        // 다음 공격까지 쿨타임
+        //다음 공격까지 쿨타임
         move.canMove = true;
         isAttacking = false;
         nextFireTime = Time.time + fireInterval;
@@ -111,10 +111,10 @@ public class Enemy3_ArrowShooter : MonoBehaviour
         Collider2D hit = Physics2D.OverlapCircle(transform.position, detectRadius, playerLayer);
         if (hit == null) return; //감지 안되면 리턴
 
-        // 방향 계산
+        //방향 계산
         Vector2 direction = (hit.transform.position - firePoint.position).normalized;
 
-        // 풀에서 총알 가져오기
+        //풀에서 총알 가져오기
         Enemy3_Arrow Arrow = GameManagers.Pool.GetFromPool(arrowPrefab);
         if (Arrow != null)
         {
@@ -130,7 +130,7 @@ public class Enemy3_ArrowShooter : MonoBehaviour
 
     }
 
-    // 디버그용 감지범위
+    //디버그용 감지범위
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.cyan;

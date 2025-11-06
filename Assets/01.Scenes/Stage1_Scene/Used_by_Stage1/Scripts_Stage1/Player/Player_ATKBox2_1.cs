@@ -25,8 +25,6 @@ public class Player_ATKBox2_1 : MonoBehaviour
                 //보스대미지용
                 enemyHp.BossTakeDamage(ATK2_1Power, transform.position);
             }
-            //타격성공 사운드
-            //SoundManager.Instance.PlayEffect("Player_ATK2_SFX");
         }
     }
 }

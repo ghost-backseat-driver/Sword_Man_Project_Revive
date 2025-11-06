@@ -15,8 +15,6 @@ public class Boss_AtkBox2 : MonoBehaviour
                 //몇 대미지, 공격자 위치 
                 playerHp.TakeDamage(20, transform.position);
             }
-            //타격성공 사운드
-            //SoundManager.Instance.PlayEffect("AxeSmash_SFX");
         }
     }
 }

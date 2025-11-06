@@ -7,7 +7,7 @@ public class FadeIn : MonoBehaviour
     [Header("페이드-인 할 이미지/패널")]
     [SerializeField] private Image fadeInImage;
     [Header("페이드-인 시간")]
-    [SerializeField] private float fadeInDuration = 1.0f; // 페이드인 시간
+    [SerializeField] private float fadeInDuration = 1.0f; //페이드인 시간
 
     private void Awake()
     {
@@ -42,6 +42,6 @@ public class FadeIn : MonoBehaviour
 
         color.a = 0f;
         fadeInImage.color = color;
-        gameObject.SetActive(false); // 끝나면 비활성화
+        gameObject.SetActive(false); //끝나면 비활성화
     }
 }

@@ -7,10 +7,10 @@ public class ObjectPool<T> where T : MonoBehaviour
     private T prefab;
     private Queue<T> pool = new Queue<T>();
 
-    // 풀을 담아둘 부모 오브젝트(컨테이너 역할)
+    //풀을 담아둘 부모 오브젝트(컨테이너 역할)
     public Transform Root { get; private set; }
 
-    // 풀 생성자 
+    //풀 생성자 
     public ObjectPool(T prefab, int initCount, Transform parent = null)
     {
         this.prefab = prefab;

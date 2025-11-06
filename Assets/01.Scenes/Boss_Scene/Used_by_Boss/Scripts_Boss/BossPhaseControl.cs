@@ -50,7 +50,7 @@ public class BossPhaseControl : MonoBehaviour
 
         //현재 페이즈와 다른SO를 찾기
         BossPhaseSO found = null; //찾지못함 플래그
-        foreach (var p in phases)//여기수정
+        foreach (var p in phases)
         {
             //Hp비율에 맞는 페이즈 찾기 계속 돌려
             if (p == null) continue;
@@ -67,9 +67,6 @@ public class BossPhaseControl : MonoBehaviour
             ExitCurrentPhase();
             EnterPhase(found);
         }
-
-        //씬 전환 확인용 디버그
-        Debug.Log($"[보스페이즈]현재 HP:{hp.GetHP()}/{hp.GetMaxHP()}/{GetCurrentPhaseName()}");
     }
 
     //페이즈 들어갈때 기능
@@ -176,11 +173,5 @@ public class BossPhaseControl : MonoBehaviour
 
         if (characterMove != null && currentPhase.disableMove)
             characterMove.canMove = true;
-    }
-
-    //에디터,디버그용 현재 페이즈 이름
-    public string GetCurrentPhaseName()
-    {
-        return currentPhase != null ? currentPhase.phaseName : "None";
     }
 }

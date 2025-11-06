@@ -26,16 +26,16 @@ public class Player_B_SceneSpawn : MonoBehaviour
     //씬 로드될때 체인걸어서 같이 나오게-이벤트온
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // 저장된 데이터 불러오기
+        //저장된 데이터 불러오기
         PlayerData data = SaveSystem.LoadPlayer();
 
         Vector3 spawnPos = Vector3.zero;
         spawnPos = spawnPoint.transform.position;
 
-        // 플레이어 생성
+        //플레이어 생성
         GameObject player = Instantiate(playerPrefab, spawnPos, Quaternion.identity);
 
-        // 로드된 데이터 적용
+        //로드된 데이터 적용
         Player_SaveLoad player_SaveLoad = player.GetComponent<Player_SaveLoad>();
         if (player_SaveLoad != null)
         {

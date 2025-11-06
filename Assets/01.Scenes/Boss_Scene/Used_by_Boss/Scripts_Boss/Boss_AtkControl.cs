@@ -20,7 +20,7 @@ public class Boss_AtkControl : MonoBehaviour
     [Header("보스 공격1")]
     [SerializeField] private GameObject bossATK1;
     [Header("보스 공격2")]
-    [SerializeField] private GameObject bossATK2; //아직 안만듦
+    [SerializeField] private GameObject bossATK2;
 
     private static readonly int bossAtk1Hash = Animator.StringToHash("isATK1");
     private static readonly int bossAtk2Hash = Animator.StringToHash("isATK2");
@@ -44,7 +44,7 @@ public class Boss_AtkControl : MonoBehaviour
         bossATK1.SetActive(false);
         bossATK2.SetActive(false);
 
-        // 플레이어 태그로 찾기 
+        //플레이어 태그로 찾기 
         GameObject playerObj = GameObject.FindGameObjectWithTag("player");
         if (playerObj != null)
         {
@@ -57,7 +57,7 @@ public class Boss_AtkControl : MonoBehaviour
         //플레이어 위치 모르면 중지
         if (player == null) return;
 
-        // 공격 중이면 이동 중지
+        //공격 중이면 이동 중지
         if (isAttacking)
         {
             move.SetDir(Vector2.zero);
@@ -104,7 +104,7 @@ public class Boss_AtkControl : MonoBehaviour
         isAttacking = true;
         move.canMove = false;
 
-        // 공격 애니메이션 실행
+        //공격 애니메이션 실행
         core.anim.SetTrigger(hash);
 
         yield return null;
@@ -113,7 +113,7 @@ public class Boss_AtkControl : MonoBehaviour
 
         yield return new WaitForSeconds(animLength);
 
-        // 다음 공격까지 쿨타임
+        //다음 공격까지 쿨타임
         move.canMove = true;
         isAttacking = false;
         nextAtkTime1 = Time.time + atkCoolTime1;
@@ -124,7 +124,7 @@ public class Boss_AtkControl : MonoBehaviour
         isAttacking = true;
         move.canMove = false;
 
-        // 공격 애니메이션 실행
+        //공격 애니메이션 실행
         core.anim.SetTrigger(hash);
 
         yield return null;
@@ -133,7 +133,7 @@ public class Boss_AtkControl : MonoBehaviour
 
         yield return new WaitForSeconds(animLength);
 
-        // 다음 공격까지 쿨타임
+        //다음 공격까지 쿨타임
         move.canMove = true;
         isAttacking = false;
         nextAtkTime2 = Time.time + atkCoolTime2;

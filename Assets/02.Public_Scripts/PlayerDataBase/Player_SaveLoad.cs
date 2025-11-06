@@ -11,14 +11,14 @@ public class Player_SaveLoad : MonoBehaviour
     public Character_HP hp;
     public Character_Move move;
 
-    // 각 어택박스에서 참조를 못하고 있어서(컴포넌트 null) 세이브로드에서 가져올수있게 퍼블릭
+    //각 어택박스에서 참조를 못하고 있어서(컴포넌트 null) 세이브로드에서 가져올수있게 퍼블릭
     [SerializeField] public Player_ATKBox1 atkBox1;
     [SerializeField] public Player_ATKBox2_1 atkBox2_1;
     [SerializeField] public Player_ATKBox2_2 atkBox2_2;
 
     private void Awake()
     {
-        // 이미 같은 오브젝트에 붙어있으니까 GetComponent로 가져오면 됨
+        //이미 같은 오브젝트에 붙어있으니까 GetComponent로 가져오면 됨
         hp = GetComponent<Character_HP>();
         move = GetComponent<Character_Move>();
     }
@@ -29,7 +29,7 @@ public class Player_SaveLoad : MonoBehaviour
         //저장 전에 체력을 최대치로 채우기
         if (hp != null)
         {
-            // 현재체력을 최대치로 세팅
+            //현재체력을 최대치로 세팅
             hp.SetHP(hp.GetMaxHP());
         }
 

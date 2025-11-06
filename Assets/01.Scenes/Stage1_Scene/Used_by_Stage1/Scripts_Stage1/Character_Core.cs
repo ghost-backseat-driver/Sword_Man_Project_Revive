@@ -16,8 +16,4 @@ public class Character_Core : MonoBehaviour
         anim = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
-    /*
-    현재 이 스크립트에 구현된 것
-    캐릭터(enemy,player) 모두에 공통적으로 사용될 리지드,애니메이터,스프라이트 랜더러 선언(코어역할)
-     */
 }

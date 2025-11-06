@@ -7,10 +7,10 @@ using UnityEngine.UI;
 public class ScreenFx : MonoBehaviour
 {
     [Header("Fade-out 설정")]
-    [SerializeField] private Image screenImage; // 블링크페이드 적용할 이미지
-    [SerializeField] public float blinkSpeed { get; private set; } = 0.05f;   // 점멸 속도
-    [SerializeField] public int blinkCount { get; private set; } = 5;         // 점멸 횟수
-    [SerializeField] public float fadeDuration { get; private set; } = 1.0f;  // 페이드아웃 시간
+    [SerializeField] private Image screenImage; //블링크페이드 적용할 이미지
+    [SerializeField] public float blinkSpeed { get; private set; } = 0.05f; //점멸 속도
+    [SerializeField] public int blinkCount { get; private set; } = 5; //점멸 횟수
+    [SerializeField] public float fadeDuration { get; private set; } = 1.0f; //페이드아웃 시간
     //사용할 코루틴 저장용
     private Coroutine ScreenFX;
 
@@ -24,7 +24,7 @@ public class ScreenFx : MonoBehaviour
         }
     }
 
-    // 점멸->페이드아웃 실행, 끝나면 콜백 호출
+    //점멸->페이드아웃 실행, 끝나면 콜백 호출
     public void Play(Action onComplete)
     {
         StopCurrentRoutine();
@@ -34,7 +34,7 @@ public class ScreenFx : MonoBehaviour
     //코루틴 실행
     private IEnumerator PlayRoutine(Action onComplete)
     {
-        // 패널점멸기능
+        //패널점멸기능
         Color screenC = screenImage.color;
         for (int i = 0; i < blinkCount; i++)
         {
@@ -53,7 +53,7 @@ public class ScreenFx : MonoBehaviour
             }
         }
 
-        // 패널 페이드아웃 기능
+        //패널 페이드아웃 기능
         float timer = 0.0f;
         while (timer < fadeDuration)
         {
@@ -68,7 +68,7 @@ public class ScreenFx : MonoBehaviour
 
         ScreenFX = null;
 
-        // 다 끝났냐? 콜백 호출
+        //다 끝났냐? 콜백 호출
         onComplete?.Invoke();
     }
 

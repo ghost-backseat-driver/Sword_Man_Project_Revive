@@ -45,7 +45,7 @@ public class Character_Damaged : MonoBehaviour
         hp = GetComponent<Character_HP>();
     }
 
-    // 피격 시 호출-> 공격자 위치 참고해서 넉백 방향 계산할 것
+    //피격 시 호출-> 공격자 위치 참고해서 넉백 방향 계산할 것
     public void OnHit(Vector2 attackerPos)
     {
         //무적이거나 죽었으면 하지마

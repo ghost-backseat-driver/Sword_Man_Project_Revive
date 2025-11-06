@@ -32,7 +32,7 @@ public class KeyUP_UI : MonoBehaviour
         UpdateKeyUI();
     }
     //열쇠 사용시 UI 키카운트 감소
-    public void UseKey() //더미 데이터->이거 사용해버리면, 보스전에서 죽었을때, 저장데이터로 돌아올때, 키 없어서 문제됨
+    public void UseKey() //이거 사용해버리면, 보스전에서 죽었을때, 저장데이터로 돌아올때, 키 없어서 문제됨->일단 냅둠
     {
         //열쇠 사용할때 1개 차감누적
         keyCount--;

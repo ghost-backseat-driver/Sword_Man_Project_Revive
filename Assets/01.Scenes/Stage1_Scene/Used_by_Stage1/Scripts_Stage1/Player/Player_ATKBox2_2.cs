@@ -15,7 +15,7 @@ public class Player_ATKBox2_2 : MonoBehaviour
     {
         if (collision.CompareTag("enemy"))
         {
-            // 에너미 hp 감소시키기
+            //에너미 hp 감소시키기
             Character_HP enemyHp = collision.GetComponent<Character_HP>();
             if (enemyHp != null)
             {
@@ -25,8 +25,6 @@ public class Player_ATKBox2_2 : MonoBehaviour
                 //보스대미지용
                 enemyHp.BossTakeDamage(ATK2_2Power, transform.position);
             }
-            //타격성공 사운드
-            //SoundManager.Instance.PlayEffect("Player_ATK2_SFX");
         }
     }
 }

@@ -13,7 +13,7 @@ public class GameQuitButton : MonoBehaviour
     }
     public void QuitGame()
     {
-        Application.Quit(); // 실제 빌드에서는 게임 종료
-        Debug.Log("게임 종료"); // 에디터에서 확인용 로그-빌드시 지울것
+        //게임 종료
+        Application.Quit();
     }
 }

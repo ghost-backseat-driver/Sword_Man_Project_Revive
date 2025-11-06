@@ -64,10 +64,4 @@ public class Character_Jump : MonoBehaviour
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
     }
-
-    /*
-     현재 이 스크립트에 구현된 것
-    -점프, 바닥 체크
-    -Character_Jump 컴포넌트 참조시, 해당 로직에 전달할 입력값 생성할 것.
-     */
 }

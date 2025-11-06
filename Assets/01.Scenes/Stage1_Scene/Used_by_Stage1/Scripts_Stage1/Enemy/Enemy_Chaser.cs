@@ -58,7 +58,7 @@ public class Enemy_Chaser : MonoBehaviour
             {
                 Vector2 originDir = (player.position - transform.position).normalized;
                 Vector2 plusDir = new Vector2(originDir.x * chaseSpeed, 0.0f); //추적속도 플러스->방향이라서 곱하기로, 더하기면 방향자체가 고꾸라짐
-                move.SetDir(new Vector2(plusDir.x, 0)); // 추적속도로 X축 방향만 추적
+                move.SetDir(new Vector2(plusDir.x, 0)); //추적속도로 X축 방향만 추적
             }
             //아니면 정지해야지
             else
@@ -87,9 +87,4 @@ public class Enemy_Chaser : MonoBehaviour
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, chaseRange);
     }
-    /*
-     현재 이 스크립트에 구현된 것
-    -캐릭터 무브에 전달해줄 (Enemy)->(Player) 추적 기능+ 추적속도증가
-    -랜덤워크 비활성화 기능 + 랜덤워크 없이 단독 사용 가능
-     */
 }

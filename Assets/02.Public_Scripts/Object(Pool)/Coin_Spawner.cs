@@ -28,8 +28,6 @@ public class Coin_Spawner : MonoBehaviour
 
     private void OnEnable()
     {
-        //씬 시작 시 풀 생성
-        //GameManagers.Pool.CreatePool(coinPrefab, initPoolCount, transform);
         //이벤트 콜라이더 때문에(컴포넌트로 두어야 해서), 플이 생성되는 위치를 GameManagers 위치로 생성되게 수정
         GameManagers.Pool.CreatePool(coinPrefab, initPoolCount, GameManagers.Pool.transform);
     }
@@ -47,7 +45,7 @@ public class Coin_Spawner : MonoBehaviour
             //코인위치 스폰위치로 잡아주고
             coin.transform.position = spawnPoint.position;
 
-            // 랜덤 방향 (위로 튀게 x값 y값 조절좀 잘 해야할듯)
+            //랜덤 방향 (위로 튀게 x값 y값 조절좀 잘 해야할듯)
             Vector2 dir = new Vector2(Random.Range(-spreadX, spreadX),Random.Range(-spreadY, spreadY)).normalized;
 
             //방향으로 지정힘만큼 발사

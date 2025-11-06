@@ -397,7 +397,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 578de45215f2b12429ed5c2a377b4b6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parryNBForceX: 10
+  parryNBForceX: 7
   parryNBForceY: 2
 --- !u!1 &4922601894557427578
 GameObject:

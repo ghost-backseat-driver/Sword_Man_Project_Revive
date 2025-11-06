@@ -36,8 +36,4 @@ public class Enemy_RandomWalk : MonoBehaviour
             yield return new WaitForSeconds(walkingTime);
         }
     }
-    /*
-     현재 이 스크립트에 구현된 것
-    -캐릭터 무브에 전달해줄 (Enemy)이동 좌우 방향 랜덤 입력값
-     */
 }

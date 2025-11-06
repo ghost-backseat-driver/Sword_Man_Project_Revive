@@ -20,8 +20,6 @@ public class PoolManager : MonoBehaviour
             Destroy(gameObject);  //중복된 자신이 있으면 파괴
         }
     }
-    //이 부분 싱글톤 스크립트 빼놓은거 상속으로 바꿔서 교체할..
-    //그럼 무조건 씬 내 오브젝트에 붙어있어야되는데? 에반데? 왜 상속형태로 만들었지? 아닌가? 일단 납둬
 
     public void CreatePool<T>(T prefab, int initCount, Transform parent = null) where T : MonoBehaviour
     {
@@ -53,10 +51,10 @@ public class PoolManager : MonoBehaviour
 
         var obj = pool.Dequeue();
 
-        // 이미 삭제된 객체라면 null 체크
+        //이미 삭제된 객체라면 null 체크
         if (obj == null)
         {
-            pool.Rebuild(); // 풀 재생성-오브젝트 풀에서 재생성
+            pool.Rebuild(); //풀 재생성-오브젝트 풀에서 재생성
             return pool.Dequeue();
         }
         return obj;

@@ -15,7 +15,7 @@ public class ToTitle_Button : MonoBehaviour
     [Header("화면 FX")]
     [SerializeField] private ScreenFx screenFx;
 
-    //StartGame 누르면 비활성화 할 메뉴패널
+    //Totitle 누르면 비활성화 할 메뉴패널
     [Header("메뉴 비활성화용")]
     [SerializeField] private GameObject menuPanel;
 

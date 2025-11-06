@@ -7,8 +7,8 @@ public class TimePause : MonoBehaviour
 {
 
     [Header("일시정지 버튼 pause/resume")]
-    [SerializeField] private Button puaseButton;  // 설정열면 멈출 버튼
-    [SerializeField] private Button resumeButton; // 닫기 누르면 다시 재생할 버튼
+    [SerializeField] private Button puaseButton; //설정열면 멈출 버튼
+    [SerializeField] private Button resumeButton; //닫기 누르면 다시 재생할 버튼
 
     [Header("ToTitle버튼 누를때도 resume")]
     [SerializeField] private Button toTitleButton;
@@ -27,7 +27,7 @@ public class TimePause : MonoBehaviour
 
     private void Start()
     {
-        // 버튼 이벤트 등록
+        //버튼 이벤트 등록
         puaseButton.onClick.AddListener(Pause);
         resumeButton.onClick.AddListener(Resume);
         toTitleButton.onClick.AddListener(Resume);

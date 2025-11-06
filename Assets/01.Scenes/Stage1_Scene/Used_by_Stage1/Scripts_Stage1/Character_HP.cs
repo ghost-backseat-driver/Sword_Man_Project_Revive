@@ -82,7 +82,7 @@ public class Character_HP : MonoBehaviour
         }
     }
 
-    // 캐릭터 죽음처리 함수 + 후처리 위한 버츄얼 사용 private-> protected virtual
+    //캐릭터 죽음처리 함수 + 후처리 위한 버츄얼 사용 private-> protected virtual
     protected virtual void Die()
     {
         //후처리 위해서 추가된 내용
@@ -99,9 +99,6 @@ public class Character_HP : MonoBehaviour
 
         //사망 모션 발동
         core.anim.SetTrigger(deadHash);
-
-        //사망 사운드 호출 필요시 여기에다가 넣을것
-        //->Soundmanager.Instance.PlayEffect("사망소리")
 
         Invoke(nameof(DieDelay), 10.0f);
 

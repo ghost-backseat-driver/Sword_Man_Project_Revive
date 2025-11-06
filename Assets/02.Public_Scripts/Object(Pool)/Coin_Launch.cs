@@ -9,7 +9,7 @@ public class Coin_Launch : MonoBehaviour
     private Coroutine lifeCoroutine;
 
     [Header("코인 생존 시간(초)")]
-    [SerializeField] private float lifeTime = 8.0f; //부모 오브젝트 사망-비활성화 시간 이하로만 가능..
+    [SerializeField] private float lifeTime = 8.0f;
 
     private void Awake()
     {

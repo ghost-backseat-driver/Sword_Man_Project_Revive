@@ -10,21 +10,21 @@ public class GameOverManager : MonoBehaviour
     [SerializeField] private Player_SaveLoad player_SaveLoad;
 
     [Header("UI 오브젝트 연결")]
-    [SerializeField] private GameObject gameOverUI; // 전체 패널
-    [SerializeField] private Button restartButton; // 재시작 버튼
-    public Text gameOverText; // "GameOver" 텍스트
+    [SerializeField] private GameObject gameOverUI; //전체 패널
+    [SerializeField] private Button restartButton; //재시작 버튼
+    public Text gameOverText; //"GameOver" 텍스트
 
     private bool isGameOver = false;
 
     private void Start()
     {
-        // UI 비활성화
+        //UI 비활성화
         if (gameOverUI != null)
         {
             gameOverUI.SetActive(false);
         }
 
-        // 버튼에 클릭 이벤트 등록
+        //버튼에 클릭 이벤트 등록
         if (restartButton != null)
         {
             restartButton.onClick.AddListener(RestartGame);
@@ -60,7 +60,7 @@ public class GameOverManager : MonoBehaviour
             player_SaveLoad.Load();
         }
 
-        // 현재 씬 다시 로드
+        //현재 씬 다시 로드
         Scene currentScene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(currentScene.buildIndex);
     }

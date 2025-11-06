@@ -21,7 +21,7 @@ public class Player_ParryBox : MonoBehaviour
         core = GetComponentInParent<Character_Core>();
         damaged = GetComponentInParent<Character_Damaged>();
 
-        // 런타임에서 찾아서 할당
+        //런타임에서 찾아서 할당
         if (parryFxManager == null)
         {
             parryFxManager = FindObjectOfType<CamaraFxManager>();
@@ -62,13 +62,13 @@ public class Player_ParryBox : MonoBehaviour
         if (!isParry) return; //중복방지
         if (!collision.CompareTag("enemyAtk")) return;
 
-        // 패링 성공 사운드
+        //패링 성공 사운드
         SoundManager.Instance.PlayEffect("Player_Parry_SFX");
 
         //패링 성공 카메라FX
         parryFxManager.OnCameraFX();
 
-        // 공격자 밀쳐내기
+        //공격자 밀쳐내기
         Rigidbody2D enemyRb = collision.GetComponentInParent<Rigidbody2D>();
         if (enemyRb != null)
         {

@@ -21,7 +21,7 @@ public class BossPhaseSO : ScriptableObject
 
     [Header("기존코드 행동 제어용-체크하면 false")]
     public bool disableAtkControl = false; //Boss_AtkControl 차단용
-    public bool disableMove = false;       //이동 차단용
+    public bool disableMove = false; //이동 차단용
 
     [Header("특수페이즈 유지 시간-훨윈드용")]
     public float specialDuration = 0.0f;

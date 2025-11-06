@@ -49,10 +49,10 @@ public class Enemy_ParryBox : MonoBehaviour
         if (!isParry) return; //중복방지
         if (!collision.CompareTag("playerAtk")) return;
 
-        // 패링 성공 사운드
-        SoundManager.Instance.PlayEffect("Player_Parry_SFX"); // 이거 똑같은거로 쓸거야?
+        //패링 성공 사운드
+        SoundManager.Instance.PlayEffect("Player_Parry_SFX"); //플레이어랑 똑같은거로
 
-        // 공격자 밀쳐내기
+        //공격자 밀쳐내기
         Rigidbody2D playerRb = collision.GetComponentInParent<Rigidbody2D>();
         if (playerRb != null)
         {

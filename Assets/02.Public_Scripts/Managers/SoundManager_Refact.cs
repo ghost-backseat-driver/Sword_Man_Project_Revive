@@ -29,7 +29,7 @@ public class SoundManager : Singleton<SoundManager>
     {
         base.Awake(); //싱글톤 초기화 -중복방지
 
-        // AudioSource 초기화
+        //AudioSource 초기화
         bgmSource = gameObject.AddComponent<AudioSource>();//BGM 재생 컴포넌트
         bgmSource.outputAudioMixerGroup = bgmGroup; //BGM은 BGM믹서 그룹이랑 묶어버리고
         bgmSource.loop = true; //BGM은 기본적으로 루프
@@ -37,18 +37,18 @@ public class SoundManager : Singleton<SoundManager>
         effectSource = gameObject.AddComponent<AudioSource>(); //EFFECT 재생 컴포넌트
         effectSource.outputAudioMixerGroup = effectGroup; //마찬가지로 해당 그룹이랑 묶어버리고
 
-        // 클립 딕셔너리 초기화
+        //클립 딕셔너리 초기화
         audioClipsDic = new Dictionary<string, AudioClip>();
         foreach (var clip in preloadClips)
         {
             audioClipsDic.Add(clip.name, clip); //이름으로 찾은거->클립으로
         }
 
-        // 씬 로드 시 BGM 자동 교체 이벤트 등록
+        //씬 로드 시 BGM 자동 교체 이벤트 등록
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    // sceneLoaded 에서 OnSceneLoaded 제거 -자동교체 중복방지
+    //sceneLoaded 에서 OnSceneLoaded 제거 -자동교체 중복방지
     private void OnDestroy()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
@@ -109,7 +109,7 @@ public class SoundManager : Singleton<SoundManager>
     //씬 전환시 BGM 자동 변경해줄 함수
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // 씬 이름에 따라 BGM 자동 변경
+        //씬 이름에 따라 BGM 자동 변경
         switch (scene.name)
         {
             case "Title_Scene":

@@ -166,10 +166,10 @@ public class Shop_UI : MonoBehaviour
         
         if (Coin_UI.Instance.coinCount < cost)
         {
-            // 실패 사운드
+            //실패 사운드
             SoundManager.Instance.PlayEffect("Cancel_SFX");
 
-            // 실패 패널 활성화
+            //실패 패널 활성화
             buyFailed_Panel.SetActive(true);
             return;
         }
@@ -217,10 +217,10 @@ public class Shop_UI : MonoBehaviour
 
         if (Coin_UI.Instance.coinCount < cost)
         {
-            // 실패 사운드
+            //실패 사운드
             SoundManager.Instance.PlayEffect("Cancel_SFX");
 
-            // 실패 패널 활성화
+            //실패 패널 활성화
             buyFailed_Panel.SetActive(true);
             return;
         }
