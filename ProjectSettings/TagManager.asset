@@ -9,6 +9,7 @@ TagManager:
   - enemyAtk
   - playerAtk
   - tileMap
+  - playerParry
   layers:
   - Default
   - TransparentFX

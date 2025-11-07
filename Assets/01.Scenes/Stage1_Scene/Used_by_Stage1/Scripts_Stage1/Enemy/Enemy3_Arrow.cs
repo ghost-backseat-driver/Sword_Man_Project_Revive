@@ -59,6 +59,10 @@ public class Enemy3_Arrow : MonoBehaviour
         {
             ReturnToPool();
         }
+        if (collision.CompareTag("playerParry"))
+        {
+            ReturnToPool();
+        }
     }
     //Ç®·Î º¹±Í
     private void ReturnToPool()
