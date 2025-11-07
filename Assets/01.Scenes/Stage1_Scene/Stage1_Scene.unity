@@ -2627,7 +2627,7 @@ GameObject:
   - component: {fileID: 229934634}
   m_Layer: 3
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: tileMap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13625,7 +13625,7 @@ GameObject:
   - component: {fileID: 510074789}
   m_Layer: 3
   m_Name: stairs
-  m_TagString: Untagged
+  m_TagString: tileMap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -80635,9 +80635,9 @@ GameObject:
   - component: {fileID: 751962662}
   - component: {fileID: 751962666}
   - component: {fileID: 751962665}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall
-  m_TagString: Untagged
+  m_TagString: tileMap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -91888,7 +91888,7 @@ GameObject:
   - component: {fileID: 1824505914}
   m_Layer: 0
   m_Name: hard_Stairs
-  m_TagString: Untagged
+  m_TagString: tileMap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

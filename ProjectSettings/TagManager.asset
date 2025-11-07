@@ -8,6 +8,7 @@ TagManager:
   - enemy
   - enemyAtk
   - playerAtk
+  - tileMap
   layers:
   - Default
   - TransparentFX

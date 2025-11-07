@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 41404439}
   m_Layer: 0
   m_Name: Wall
-  m_TagString: Untagged
+  m_TagString: tileMap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18394,7 +18394,7 @@ GameObject:
   - component: {fileID: 996095280}
   m_Layer: 3
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: tileMap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

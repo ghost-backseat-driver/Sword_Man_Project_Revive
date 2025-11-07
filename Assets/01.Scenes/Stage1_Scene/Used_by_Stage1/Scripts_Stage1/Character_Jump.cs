@@ -38,6 +38,7 @@ public class Character_Jump : MonoBehaviour
             jumpRequested = true;
         }
     }
+
     private void FixedUpdate()
     {
         Jump();

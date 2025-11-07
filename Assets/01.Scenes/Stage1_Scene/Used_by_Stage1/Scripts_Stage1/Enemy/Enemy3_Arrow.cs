@@ -54,7 +54,11 @@ public class Enemy3_Arrow : MonoBehaviour
             }
 
             ReturnToPool();
-        }        
+        }
+        if (collision.CompareTag("tileMap")) //맵 태그에 닿으면 그대로 리턴풀
+        {
+            ReturnToPool();
+        }
     }
     //풀로 복귀
     private void ReturnToPool()
