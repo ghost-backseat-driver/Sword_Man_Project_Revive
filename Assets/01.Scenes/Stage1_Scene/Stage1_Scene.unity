@@ -93457,6 +93457,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 301268863873736588, guid: d823f4612756e3f4d8ad9d4c86028254, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 301268863873736588, guid: d823f4612756e3f4d8ad9d4c86028254, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 301268863873736588, guid: d823f4612756e3f4d8ad9d4c86028254, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
     - target: {fileID: 791601020481906606, guid: d823f4612756e3f4d8ad9d4c86028254, type: 3}
       propertyPath: m_text
       value: "\uC124\uC815\uC644\uB8CC"
@@ -93501,6 +93513,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1017720286830760281, guid: d823f4612756e3f4d8ad9d4c86028254, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017720286830760281, guid: d823f4612756e3f4d8ad9d4c86028254, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017720286830760281, guid: d823f4612756e3f4d8ad9d4c86028254, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
     - target: {fileID: 1265972591566070947, guid: d823f4612756e3f4d8ad9d4c86028254, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -93529,6 +93553,18 @@ PrefabInstance:
       propertyPath: toTitleButton
       value: 
       objectReference: {fileID: 832126678}
+    - target: {fileID: 1778949343696035591, guid: d823f4612756e3f4d8ad9d4c86028254, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1778949343696035591, guid: d823f4612756e3f4d8ad9d4c86028254, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 1778949343696035591, guid: d823f4612756e3f4d8ad9d4c86028254, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
     - target: {fileID: 2069402670448309320, guid: d823f4612756e3f4d8ad9d4c86028254, type: 3}
       propertyPath: m_Color.b
       value: 0
@@ -93536,6 +93572,18 @@ PrefabInstance:
     - target: {fileID: 2069402670448309320, guid: d823f4612756e3f4d8ad9d4c86028254, type: 3}
       propertyPath: m_Color.g
       value: 0.6901961
+      objectReference: {fileID: 0}
+    - target: {fileID: 2098589665744589095, guid: d823f4612756e3f4d8ad9d4c86028254, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2098589665744589095, guid: d823f4612756e3f4d8ad9d4c86028254, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 2098589665744589095, guid: d823f4612756e3f4d8ad9d4c86028254, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
       objectReference: {fileID: 0}
     - target: {fileID: 2796374200048283915, guid: d823f4612756e3f4d8ad9d4c86028254, type: 3}
       propertyPath: m_IsActive
@@ -93577,6 +93625,18 @@ PrefabInstance:
       propertyPath: m_Color.g
       value: 0.6901961
       objectReference: {fileID: 0}
+    - target: {fileID: 4761009430804028493, guid: d823f4612756e3f4d8ad9d4c86028254, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4761009430804028493, guid: d823f4612756e3f4d8ad9d4c86028254, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 4761009430804028493, guid: d823f4612756e3f4d8ad9d4c86028254, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
     - target: {fileID: 5191863244556908723, guid: d823f4612756e3f4d8ad9d4c86028254, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -93612,6 +93672,18 @@ PrefabInstance:
     - target: {fileID: 6838112826979592238, guid: d823f4612756e3f4d8ad9d4c86028254, type: 3}
       propertyPath: m_Color.g
       value: 0.78431374
+      objectReference: {fileID: 0}
+    - target: {fileID: 7654374270322890956, guid: d823f4612756e3f4d8ad9d4c86028254, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7654374270322890956, guid: d823f4612756e3f4d8ad9d4c86028254, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 7654374270322890956, guid: d823f4612756e3f4d8ad9d4c86028254, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
       objectReference: {fileID: 0}
     - target: {fileID: 7917996628846268123, guid: d823f4612756e3f4d8ad9d4c86028254, type: 3}
       propertyPath: m_IsActive
